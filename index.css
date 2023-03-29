@@ -4,6 +4,7 @@
 }
 body{
   background-color: #000001;
+  background: linear-gradient(90deg,#000001,rgb(107, 107, 107));
   color:#fff;
   display: flex;
    align-content: center;
@@ -12,6 +13,9 @@ body{
 }
 .logo{
   grid-area: logo;
+}
+.wrapper input[type=checkbox]{
+  display: none;
 }
 .menu{
   grid-area: menu;
@@ -48,6 +52,164 @@ div.projects{
   flex-direction: column;
   align-items: center;
 }
+  /*exp to make the images in gallery full screen */
+
+div.gallery input[type='checkbox']:checked~ div.backblur{
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-color: #4e4e4e;
+  opacity: 75%;
+
+}
+  input{
+    
+  }
+  div.gallery input[type='checkbox']#chkimg1:checked~figure label img.i1  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg2:checked~figure label img.i2  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg3:checked~figure label img.i3  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg4:checked~figure label img.i4  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg5:checked~figure label img.i5  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg6:checked~figure label img.i6  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg7:checked~figure label img.i7  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg8:checked~figure label img.i8  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg9:checked~figure label img.i9  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  div.gallery input[type='checkbox']#chkimg0:checked~figure label img.i0  {
+    box-sizing: content-box;
+    position: fixed;
+    background-color: transparent;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+    top: 0%;
+    left: 0%;
+    width: 60vw;
+    height: max-content;
+    z-index: 5;
+    filter: brightness(100%);
+  }
+  
+
+  /*exp to make the images in gallery full screen  */
 div.gallery{
   grid-area: gallery;
   background-color: rgb(17, 17, 17);
@@ -63,6 +225,7 @@ div.gallery figure img:hover{
   filter: brightness(100%);
   z-index: 1;
 }
+
 div.aboutus{
   grid-area: aboutus;
   background-color: rgb(17, 17, 17);
@@ -178,7 +341,7 @@ figure img{
   from{ width: 70vw; height: 70vw; border-radius: 35vw;  }
       to{}
 }
-.wrapper input[type = checkbox]{
+.wrapper  input[type = checkbox].menuicon{
   display: none;
 }
 
@@ -252,6 +415,7 @@ figure img{
     /* box-shadow: 3px 3px 3px white; */
    
   }
+
   .wrapper input[type = 'checkbox']:checked~.menu{
     list-style-type: none;
     position: absolute;
@@ -316,6 +480,8 @@ figure img{
     opacity: 70%;
     z-index: 1;
   }
+
+
 }
 @media (min-width:768px) {
   .wrapper .menu ul{
@@ -338,6 +504,9 @@ figure img{
   }
   .menu{
     display: block;
+  }
+  div.backblur{
+    z-index: 1;
   }
   .main {
     animation-name: write;
