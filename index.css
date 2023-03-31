@@ -248,7 +248,7 @@ div.contactus{
  animation-name: enter;
   animation-duration: 1.5s;
   filter: brightness(40%);
-  filter: grayscale(50%);
+  filter: grayscale(80%);
 }
 .img{
   animation-name: hi;
@@ -256,25 +256,26 @@ div.contactus{
   animation-iteration-count: infinite;
 
 }
-.img .yellow:hover{
+.img .yellow{
   border:5px solid yellow;
   border-radius: 50%;
 }
-.img .green:hover{
+.img .green{
   border:5px solid green;
   border-radius: 50%;
 }
-.img .red:hover{
+.img .red{
   border:5px solid red;
   border-radius: 50%;
 }
 .img img:hover{
   background-color: white;
   filter: brightness(100%);
-  border: 10px double blue;
- 
-  border-style: double;
-  
+  filter: grayscale(70%);
+  border: 10px double  green yellow ;
+  box-shadow:   ;
+  /* border-style: double; */
+  /* box-shadow: 3px 3px 3px white; */
  
 }
 
