@@ -4,7 +4,7 @@
 }
 body{
   background-color: #000001;
-  background: linear-gradient(90deg,#000001,rgb(107, 107, 107));
+  /* background: linear-gradient(90deg,#000001,rgb(107, 107, 107)); */
   color:#fff;
   display: flex;
    align-content: center;
@@ -71,12 +71,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -85,12 +85,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -99,12 +99,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -113,12 +113,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -127,12 +127,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -141,12 +141,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -155,12 +155,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -169,12 +169,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -183,12 +183,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -197,12 +197,12 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     box-sizing: content-box;
     position: fixed;
     background-color: transparent;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vh;
     top: 0%;
     left: 0%;
-    width: 60vw;
+    width: 80vw;
     height: max-content;
     z-index: 5;
     filter: brightness(100%);
@@ -248,12 +248,33 @@ div.contactus{
  animation-name: enter;
   animation-duration: 1.5s;
   filter: brightness(40%);
+  filter: grayscale(80%);
+}
+.img{
+  animation-name: hi;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+}
+.img .yellow{
+  border:5px solid yellow;
+  border-radius: 50%;
+}
+.img .green{
+  border:5px solid green;
+  border-radius: 50%;
+}
+.img .red{
+  border:5px solid red;
+  border-radius: 50%;
 }
 .img img:hover{
   background-color: white;
   filter: brightness(100%);
-  border: 10px double blue;
-  border-style: double;
+  filter: grayscale(70%);
+  border: 10px double  green yellow ;
+  box-shadow:   ;
+  /* border-style: double; */
   /* box-shadow: 3px 3px 3px white; */
  
 }
