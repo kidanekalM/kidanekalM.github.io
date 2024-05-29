@@ -1,3 +1,4 @@
+/* fto do decreaser css */
 *{
   /* border: 1px solid red; */
   box-sizing: border-box;
@@ -38,7 +39,7 @@ body{
 .img{
   grid-area: img;
   padding: 20px;
-  background-color: rgb(17, 17, 17);
+  /* background-color: rgb(17, 17, 17); */
   height: max-content;
   display: flex;
   flex-direction: column;
