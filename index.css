@@ -209,7 +209,9 @@ div.gallery input[type='checkbox']:checked~ div.backblur{
     filter: brightness(100%);
   }
   
-
+video{
+  width: 50vw;
+}
   /*exp to make the images in gallery full screen  */
 div.gallery{
   grid-area: gallery;
