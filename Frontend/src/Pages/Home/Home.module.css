@@ -1,0 +1,20 @@
+.servicesCont{
+    background-color: #f0f0f0;
+    box-shadow: 0 0 2px 2px grey;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: max-content;
+    width: 100vw;
+  }
+  .services{
+    background-color: #f0f0f0;
+    gap: 10rem;
+    width: 100%;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    height: max-content;
+    flex-direction: column;
+    justify-content: center;
+    }
