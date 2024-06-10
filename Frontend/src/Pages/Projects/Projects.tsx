@@ -12,7 +12,7 @@ const API_URL = import.meta.env.VITE_API_LOCATION
 export default function Projects() { 
     const [slider,setSlider] = useState(0)
     const [projs,setProjs] = useState(projects);
-    const [curProj,setCurProj] = useState([{__id:"",title:"",picUrl:"",desc:""}]);
+    const [curProj,setCurProj] = useState([{__id:"",title:"",picUrl:"",desc:"",vidurl:""}]);
     const {title} = useParams()
     // useEffect(()=>{(fetch(API_URL+'projects').then(response=>response.json()).then(data=>{setProjs(data);} ))},[])
     // console.log(title);
@@ -25,7 +25,7 @@ export default function Projects() {
         </div>
         {console.log(projs)}
         {console.log(slider)}
-        <ProjectDetail title={curProj[slider].title} desc={curProj[slider].desc} pic={curProj[slider].picUrl} />
+        <ProjectDetail vidurl={curProj[slider].vidurl} title={curProj[slider].title} desc={curProj[slider].desc} pic={curProj[slider].picUrl} />
         <ThumbnailProjects title="" callToAction='Contact Us' link='tel:+251922335151' projs={projs}/>
     </>  
     }
