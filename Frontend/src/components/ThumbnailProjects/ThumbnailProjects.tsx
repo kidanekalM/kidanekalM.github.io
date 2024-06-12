@@ -10,7 +10,6 @@ interface props {
   callToAction: string;
   link: string;
   projs:Array<{__id:string,title:string,picUrl:string,desc:string}>
-  setCurrProj:
 }
 export default function ThumbnailProjects({  
   title,
