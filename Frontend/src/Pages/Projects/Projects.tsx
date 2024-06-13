@@ -5,7 +5,7 @@ import ProjectDetail from '../../components/ProjectDetail/ProjectDetail'
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import projects from './projectes'
+import projects from './projects'
 const API_URL = import.meta.env.VITE_API_LOCATION
 
 
