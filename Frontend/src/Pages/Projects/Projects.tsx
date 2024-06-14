@@ -5,13 +5,13 @@ import ProjectDetail from '../../components/ProjectDetail/ProjectDetail'
 import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import projects from './projects'
+import projectRepo from './projectsRepo'
 const API_URL = import.meta.env.VITE_API_LOCATION
 
 
 export default function Projects() { 
     const [slider,setSlider] = useState(0)
-    const [projs,setProjs] = useState(projects);
+    const [projs,setProjs] = useState(projectRepo);
     const [curProj,setCurProj] = useState([{__id:"",title:"",picUrl:"",vidurl:"",desc:""}]);
     const {title} = useParams()
     useEffect(()=>{(fetch(API_URL+'projects').then(response=>response.json()).then(data=>{setProjs(data);} ))},[])
