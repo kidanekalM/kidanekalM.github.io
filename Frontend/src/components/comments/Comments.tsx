@@ -4,7 +4,7 @@ import Comment from '../comment/Comment'
 
 let comments = [
                 {name: "Organization",
-                comment:"\"Kidanekal has ... \"",
+                comment:"\"Kidanekal  ... \"",
                 pic:"", }
             ] 
 

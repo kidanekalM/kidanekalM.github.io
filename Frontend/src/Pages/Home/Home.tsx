@@ -27,11 +27,11 @@ function Home() {
     <Link to="projects">
       <ThumbnailProjects title="Previous Projects"   callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
     </Link>
-      <div className={styles.services}>
+      {/* <div className={styles.services}>
         <ProductCard side='right' title="" desc="" imgSrc={"arc"} callToAction='Contact' link="tel:+251922335133"/>
         <ProductCard side='left' title="" desc="" imgSrc={"con"} callToAction='Contact' link="tel:+251922335133"/>
         <ProductCard  side="right" title='' desc='' imgSrc={"mat"} callToAction='Contact' link='tel:+251922335133'/>
-      </div>
+      </div> */}
     <Comments/>
     </>
   )
