@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+.wrapper{
+    max-width: 100%;
+    overflow: hidden;
+}
+.container{
+    width: 300vw;
+    overflow: hidden;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    animation-name: slideIn;
+    animation-duration: 100s;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 3px 2px grey inset;
+    background-color: #f0f0f0;
+}
+@keyframes slideIn {
+    from{
+        left: 0;
+    }
+    to{
+        left: -300vw;
+        position: initial;
+    }
+}
