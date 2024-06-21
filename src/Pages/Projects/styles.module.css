@@ -1,0 +1,26 @@
+
+.controls{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 50vh;
+
+}
+.control{
+    margin: 0;
+    border: 0;
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    border-radius: 10vh;
+    background-color: transparent;
+    opacity: 100%;
+}
+.control:hover{
+    scale: 1.3px;
+}
+.controlImg{
+    height: 40px;
+    width: 40px;
+}
