@@ -3,8 +3,6 @@ import logo from './pics/logo.png'
 import Header from './components/header/header'
 import Footer from './components/Footer/Footer';
 import Home from './Pages/Home/Home';
-import Services from './Pages/Services/Services'
-import Products from './Pages/Products/Products';
 import Projects from './Pages/Projects/Projects';
 import AdminSignIn from './Pages/Admin/AdminSignIn/AdminSignIn';
 import AdminHome from './Pages/Admin/AdminHome/AdminHome';
@@ -21,8 +19,6 @@ function App() {
         <Route path='/Projects' element={<Projects/>}>
           <Route path='/Projects/:title' element={<Projects/>}></Route>
         </Route>
-        <Route path='/Products' element={<Products/>}></Route>
-        <Route path='/Services' element={<Services/>}></Route>
         <Route path='/AdminSignIn' element={<AdminSignIn/>}></Route>
         <Route path='/AdminHome' element={<AdminHome/>}></Route>
         <Route path='AdminHome/ManageProjects' element={<ManageProjects/>}></Route>
