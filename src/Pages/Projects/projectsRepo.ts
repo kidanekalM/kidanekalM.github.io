@@ -9,8 +9,10 @@ import cssPic from './unstructured_content/img/cssNat.jpg'
 import foodPic from './unstructured_content/img/fastfood.jpg'
 import foodvid from './unstructured_content/img/fastfood.mp4'
 import wefpic from './unstructured_content/img/encrypt.jpg'
+import rasterpic from './unstructured_content/img/raster.jpg'
 import whitehat from './unstructured_content/img/whitehat.jpg'
 import cssvid from './unstructured_content/img/CSS Nature — Mozilla Firefox 2024-06-14 08-57-09.mp4'
+import rastervid from './unstructured_content/img/Raster — Mozilla Firefox 2024-06-24 09-29-34.mp4'
 import cpuvid from './unstructured_content/img/CPU Scheduling Algorithm Visualizer - CSAV — Mozilla Firefox 2024-06-07 10-11-13.mp4'
 import riddlevid from './unstructured_content/img/Riddle_🐅_🐐_🥬_—_Mozilla_Firefox_2023_04_16_01_23_21.mp4'
 import prodvid from './unstructured_content/img/Producer and Consumer Simulator — Mozilla Firefox 2024-06-07 10-13-33.mp4'
@@ -19,7 +21,7 @@ import hafcomvid from './unstructured_content/img/HAFCOM Design Build Deliver �
 let projectRepo = 
 [
     {__id:"1",title:"Reporting System",link:"",picUrl:pirspic,vidurl:pirsvid,desc:"In ethiopia there is a need for a reporting system. Noticing this problem me and my team tried to implement a reporting system in which the reports can be sorted by location, number of users and by the company that it is reported to. In this project we encountered multiple problems like making the user experience as frictionless as possible and trying to get as much information for the report. We tried to solve this problem by providing the user option to not repeat what other users have already reported. I learned a lot from this project like google maps api, browser geolocation api,  "},
-    {__id:"11",title:"Raster System",link:"",picUrl:pirspic,vidurl:pirsvid,desc:"In ethiopia there is a need for a reporting system. Noticing this problem me and my team tried to implement a reporting system in which the reports can be sorted by location, number of users and by the company that it is reported to. In this project we encountered multiple problems like making the user experience as frictionless as possible and trying to get as much information for the report. We tried to solve this problem by providing the user option to not repeat what other users have already reported. I learned a lot from this project like google maps api, browser geolocation api,  "},
+    {__id:"11",title:"Graphics Simulator",link:"",picUrl:rasterpic,vidurl:rastervid,desc:"I tried to simulate and create an algorithm testing sandbox for raster graphics "},
     {__id:"2",title:"HaFCoM",link:"", picUrl:hafcompic,vidurl:hafcomvid,desc:"HafCoM is a construction and architectural company in Ethiopia. I implemented their website using react to showcase their projects and serives along with the products they offer. I learned a lot about react in this project "},
     {__id:"6",title:"Fast Food Restaurant Managment",link:"",picUrl:foodPic,vidurl:foodvid,desc:"In the rushing work of the fast food restaurant speed and coordination is very important. We tried to implement the fast food restaurant managment system to simplify the process of ordering and organizing orders for fast food restaurants. This helped us in learning more about C# and the dotment framework and Data structures like the queue."},
     {__id:"4",title:"CPU Scheduling Algorithm",link:"",picUrl:cpupic,vidurl:cpuvid,desc:"This web application can simulate the process of different cpu scheduling algorithms from first come firs serve, shortest job first round robin and thier preemptive and non preemtive versions. In this project I learned about javascript and the process of timing in javascript. I encountered some problems in accessing the processes and I solved that by using queue data structure "},
