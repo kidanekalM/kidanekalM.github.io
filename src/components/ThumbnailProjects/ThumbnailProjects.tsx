@@ -9,14 +9,16 @@ interface props {
   // thumbnails: Array<thumbnail>;
   callToAction: string;
   link: string;
-  projs:Array<{__id:string,title:string,picUrl:string,desc:string}>
+  projs:Array<{__id:string,title:string,picUrl:string,desc:string}>;
+  type:string
 }
 export default function ThumbnailProjects({  
   title,
   // thumbnails = dummythumbnails,
   callToAction,
   link,
-  projs
+  projs,
+  type
 }: props ) {
   // let [projs,setProjs] = useState([{__id:"",title:"",picUrl:"",desc:""}]);
   // useEffect(()=>{(fetch(API_URL+'projects').then(response=>response.json()).then(data=>setProjs(data)))})
@@ -29,7 +31,7 @@ export default function ThumbnailProjects({
         title={projs[i].title}
         imgSrc={projs[i].picUrl}
         desc={projs[i].desc}
-        linkTo={"/projects/"+projs[i].title}
+        linkTo={"/"+type+"/"+projs[i].title}
       />
     );
   }

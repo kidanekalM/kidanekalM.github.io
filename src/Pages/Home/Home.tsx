@@ -25,7 +25,7 @@ function Home() {
     <>
     <Hero backgroundImage={""} Name="Hi" motto='Kidanekal Alem Portifolio'/>
     <Link to="projects">
-      <ThumbnailProjects title="Previous Projects"   callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
+      <ThumbnailProjects type='projects' title="Previous Projects"   callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
     </Link>
       {/* <div className={styles.services}>
         <ProductCard side='right' title="" desc="" imgSrc={"arc"} callToAction='Contact' link="tel:+251922335133"/>

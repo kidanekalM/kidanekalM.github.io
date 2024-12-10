@@ -7,6 +7,7 @@ import Projects from './Pages/Projects/Projects';
 import AdminSignIn from './Pages/Admin/AdminSignIn/AdminSignIn';
 import AdminHome from './Pages/Admin/AdminHome/AdminHome';
 import ManageProjects from './Pages/Admin/AdminHome/ManageProjects/ManageProjects';
+import Qualificaition from './Pages/Qualification/Qualification'
 import './App.css'
 import AddProjects from './Pages/Admin/AdminHome/ManageProjects/AddProjects/AddProjects';
 import EditProjects from './Pages/Admin/AdminHome/ManageProjects/EditProjects/EditProjects';
@@ -18,6 +19,9 @@ function App() {
         <Route path='/'  element={<Home/>}></Route>
         <Route path='/Projects' element={<Projects/>}>
           <Route path='/Projects/:title' element={<Projects/>}></Route>
+        </Route>
+        <Route path='/Qualification' element={<Qualificaition/>}>
+        <Route path='/Qualification/:title' element={<Qualificaition/>}></Route>
         </Route>
         <Route path='/AdminSignIn' element={<AdminSignIn/>}></Route>
         <Route path='/AdminHome' element={<AdminHome/>}></Route>

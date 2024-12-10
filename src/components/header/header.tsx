@@ -11,7 +11,7 @@ import {GrClose} from 'react-icons/gr'
     let [title,setTitle] = useState("")
    return <>
     <header className={headerStyle.header}>
-        <Link to={"../"} onClick={()=> {setTitle("")}}> <div className={headerStyle.logo} ><img src={logo} alt="HAFCOM LOGO" /></div> </Link> 
+        <Link to={"../"} onClick={()=> {setTitle("")}}> <div className={headerStyle.logo} ><img src={logo} alt="Portifolio Logo" /></div> </Link> 
         <h1 className={headerStyle.title}>{title}</h1>
         <GrClose size={40} className={menu? headerStyle.closeBtn:headerStyle.displayNone} onClick={function(){setMenu(false)}}/>
         <HiMenu size={40} className={headerStyle.openBtn} onClick={function(){setMenu(true)}}/>
@@ -20,6 +20,11 @@ import {GrClose} from 'react-icons/gr'
                 <Link to="/Projects"  onClick={function(){setMenu(false); setTitle("Projects")}}>
                 <li>
                     Projects
+                </li>
+                </Link>
+                <Link to="/Qualification"  onClick={function(){setMenu(false); setTitle("Qualification")}}>
+                <li>
+                    Qual
                 </li>
                 </Link>
                 {/* <Link to="/Services" onClick={function(){setMenu(false); setTitle("Services")}}>

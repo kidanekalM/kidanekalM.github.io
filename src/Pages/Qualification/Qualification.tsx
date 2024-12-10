@@ -2,19 +2,19 @@ import forwImg from '../../pics/forward.svg'
 import backImg from '../../pics/backward.svg'
 import ThumbnailProjects from '../../components/ThumbnailProjects/ThumbnailProjects'
 import ProjectDetail from '../../components/ProjectDetail/ProjectDetail'
-import styles from './styles.module.css'
+import styles from '../Projects/styles.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import projectRepo from './projectsRepo'
+import QualRepo from './QualRepo'
 const API_URL = import.meta.env.VITE_API_LOCATION
 
 
 export default function Projects() { 
     const [slider,setSlider] = useState(0)
-    const [projs,setProjs] = useState(projectRepo);
+    const [projs,setProjs] = useState(QualRepo);
     const [curProj,setCurProj] = useState([{__id:"",title:"",link:"",picUrl:"",vidurl:"",desc:""}]);
     const {title} = useParams()
-    useEffect(()=>{(fetch(API_URL+'projects').then(response=>response.json()).then(data=>{setProjs(data);} ))},[])
+    useEffect(()=>{(fetch(API_URL+'Qualification').then(response=>response.json()).then(data=>{setProjs(data);} ))},[])
     console.log(title);
     useEffect(()=>{if(projs.length>1){setCurProj(projs.filter((pr)=>{return pr.title === title}))}},[projs])
     if((title!=undefined)&&(projs)){
@@ -26,11 +26,11 @@ export default function Projects() {
         {console.log(projs)}
         {console.log(slider)}
         <ProjectDetail title={curProj[slider].title}  link={curProj[slider].link} vidurl={curProj[slider].vidurl} desc={curProj[slider].desc} pic={curProj[slider].picUrl} />
-        <ThumbnailProjects title="" type='projects' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
+        <ThumbnailProjects title="" type='Qualification' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
     </>  
     }
     else{
-        return  <ThumbnailProjects title="" type='projects' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
+        return  <ThumbnailProjects title="" type='Qualification' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
 
     }
 }
