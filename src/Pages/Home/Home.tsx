@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 // import img1 from '../../pics/project1.jpg'
 import img2 from '../../pics/project2.jpg'
 import img3 from '../../pics/project3.jpg'
+import heroBg from '../../pics/kidanekal.png'
 const API_URL = import.meta.env.VITE_API_LOCATION
 function Home() {
   const [projs,setProjs] = useState([
@@ -23,7 +24,7 @@ function Home() {
 
   return (
     <>
-    <Hero backgroundImage={""} Name="Hi" motto='Kidanekal Alem Portifolio'/>
+    <Hero backgroundImage={heroBg} Name="Kidanekal Alem" motto='Full‑Stack Developer • Building clean, performant web experiences'/>
     <Link to="projects">
       <ThumbnailProjects type='projects' title="Previous Projects"   callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
     </Link>

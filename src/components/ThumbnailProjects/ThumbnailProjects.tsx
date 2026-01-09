@@ -26,8 +26,10 @@ export default function ThumbnailProjects({
   let res: Array<React.JSX.Element>;
   res = [];
   for (let i = 0; i < projs.length; i++) {
+    const key = projs[i].__id || projs[i].title || String(i);
     res.push(
       <Thumbnail
+        key={key}
         title={projs[i].title}
         imgSrc={projs[i].picUrl}
         desc={projs[i].desc}

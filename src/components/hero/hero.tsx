@@ -5,16 +5,16 @@ interface Props{
     backgroundImage:string
 }
 function Hero({Name,motto,backgroundImage}:Props) {
-    return<>
-    <main className={styles.main} style={{ backgroundImage: `url('${backgroundImage}')` }} >
-
-        <div className={styles.bigball}>
+    return <>
+      <main className={styles.main}>
+        {backgroundImage && (
+          <img className={styles.avatar} src={backgroundImage} alt={`${Name} avatar`} loading="lazy" />
+        )}
         <h1 className={styles.name}>{Name}</h1>
         <h2 className={styles.motto}>{motto}</h2>
-
-        </div>
-        <div className={styles.bigball}></div>
-    </main>
+        <div className={styles.blob + ' ' + styles.one}></div>
+        <div className={styles.blob + ' ' + styles.two}></div>
+      </main>
     </>
 }
 export default Hero

@@ -14,7 +14,12 @@
     animation-iteration-count: 1;
 }
 .pic{
-    max-width: 99vw;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
 }
 .caption{
     width: 100%;
@@ -33,18 +38,11 @@
 .desc{
     font-size: 1.2rem;
 }
-@media slide {
+@keyframes slide {
     from{
-        position: relative;
-        left: 100vw;
-    }    
-    to{
-        left: 0;
+        transform: translateX(100vw);
     }
-}
-@media(min-width:700px) {
-    .pic{
-        height: 80%;
-        width: auto;
+    to{
+        transform: translateX(0);
     }
 }

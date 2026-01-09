@@ -11,34 +11,32 @@ import {GrClose} from 'react-icons/gr'
     let [title,setTitle] = useState("")
    return <>
     <header className={headerStyle.header}>
-        <Link to={"../"} onClick={()=> {setTitle("")}}> <div className={headerStyle.logo} ><img src={logo} alt="Portifolio Logo" /></div> </Link> 
+      <div className={headerStyle.headerInner}>
+        <Link to={"/"} onClick={()=> {setTitle("")}}>
+          <div className={headerStyle.logo}>
+            <img src={logo} alt="Portfolio logo" />
+          </div>
+        </Link>
         <h1 className={headerStyle.title}>{title}</h1>
-        <GrClose size={40} className={menu? headerStyle.closeBtn:headerStyle.displayNone} onClick={function(){setMenu(false)}}/>
-        <HiMenu size={40} className={headerStyle.openBtn} onClick={function(){setMenu(true)}}/>
-        <nav className={menu?headerStyle.nav:headerStyle.menuHidden} >
-            <ul className={headerStyle.list}>
-                <Link to="/Projects"  onClick={function(){setMenu(false); setTitle("Projects")}}>
-                <li>
-                    Projects
-                </li>
-                </Link>
-                <Link to="/Qualification"  onClick={function(){setMenu(false); setTitle("Qualification")}}>
-                <li>
-                    Qual
-                </li>
-                </Link>
-                {/* <Link to="/Services" onClick={function(){setMenu(false); setTitle("Services")}}>
-                    <li>
-                        Services
-                    </li>
-                </Link>
-                <Link to="/Products" onClick={function(){setMenu(false); setTitle("Products")}}>
-                    <li>
-                        Products
-                    </li>
-                </Link> */}
-            </ul>
+        <GrClose size={36} className={menu? headerStyle.closeBtn:headerStyle.displayNone} onClick={function(){setMenu(false)}}/>
+        <HiMenu size={36} className={headerStyle.openBtn} onClick={function(){setMenu(true)}}/>
+        <nav className={menu?headerStyle.nav:headerStyle.menuHidden}>
+          <ul className={headerStyle.list}>
+            <Link to="/" onClick={function(){setMenu(false); setTitle("")}}>
+              <li>Home</li>
+            </Link>
+            <Link to="/Projects" onClick={function(){setMenu(false); setTitle("Projects")}}>
+              <li>Projects</li>
+            </Link>
+            <Link to="/Qualification" onClick={function(){setMenu(false); setTitle("Qualification")}}>
+              <li>Qualification</li>
+            </Link>
+            <a href="tel:+251922335133" onClick={function(){setMenu(false); setTitle("Contact")}}>
+              <li>Contact</li>
+            </a>
+          </ul>
         </nav>
+      </div>
     </header>
     </>
 }
