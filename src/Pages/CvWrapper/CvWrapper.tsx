@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Cv from "../Cv/Cv";
 import resumeData from "../../data/resume-data";
 
@@ -6,7 +6,7 @@ const CvWrapper = () => {
   const [cvData, setCvData] = useState(resumeData);
   const [userPrompt, setUserPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [, setError] = useState("");
 
   const handleCustomize = async () => {
     if (!userPrompt.trim()) {
