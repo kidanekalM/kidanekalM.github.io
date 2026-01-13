@@ -1,8 +1,57 @@
-import resumeData from "../../data/resume-data";
+import React from "react";
 
-const Cv = () => {
+export interface ResumeData {
+  personal: {
+    fullName: string;
+    tagline: string;
+    location: string;
+    email: string;
+    phone: string;
+    portfolioUrl: string;
+    githubUrl: string;
+    linkedinUrl: string;
+    careerObjective: string;
+  };
+  skills: {
+    languages: string[];
+    frameworks: string[];
+    concepts: string[];
+  };
+  languages: { name: string; proficiency: string }[];
+  experience: {
+    company: string;
+    location: string;
+    position: string;
+    startDate: string;
+    endDate?: string;
+    current?: boolean;
+    responsibilities: string[];
+  }[];
+  education: {
+    institution: string;
+    degree: string;
+    startDate: string;
+    endDate: string;
+    gpa?: string;
+    honors?: string;
+  }[];
+  projects: {
+    id: string;
+    title: string;
+    link?: string;
+    description: string;
+    technologies: string[];
+    features?: string[];
+  }[];
+}
+
+interface CvProps {
+  resume: ResumeData;
+}
+
+const Cv: React.FC<CvProps> = ({ resume }) => {
   const printCV = () => {
-      window.print();
+    window.print();
   };
 
   return (
@@ -15,35 +64,35 @@ const Cv = () => {
         {/* SIDEBAR */}
         <aside className="cv-sidebar">
           <div className="sidebar-header">
-            <h1>{resumeData.personal.fullName}</h1>
-            <h2>{resumeData.personal.tagline}</h2>
+            <h1>{resume.personal.fullName}</h1>
+            <h2>{resume.personal.tagline}</h2>
           </div>
 
           <section>
             <h3>Contact</h3>
-            <p>📍 {resumeData.personal.location}</p>
-            <p>✉️ {resumeData.personal.email}</p>
-            <p>📞 {resumeData.personal.phone}</p>
+            <p>📍 {resume.personal.location}</p>
+            <p>✉️ {resume.personal.email}</p>
+            <p>📞 {resume.personal.phone}</p>
             <p>
-              🌐 <a href={resumeData.personal.portfolioUrl}>Portfolio</a><br />
-              🐱 <a href={resumeData.personal.githubUrl}>GitHub</a><br />
-              🔗 <a href={resumeData.personal.linkedinUrl}>LinkedIn</a>
+              🌐 <a href={resume.personal.portfolioUrl}>Portfolio</a><br />
+              🐱 <a href={resume.personal.githubUrl}>GitHub</a><br />
+              🔗 <a href={resume.personal.linkedinUrl}>LinkedIn</a>
             </p>
           </section>
 
           <section>
             <h3>Skills</h3>
             <strong>Languages</strong>
-            <p>{resumeData.skills.languages.join(", ")}</p>
+            <p>{resume.skills.languages.join(", ")}</p>
             <strong>Frameworks</strong>
-            <p>{resumeData.skills.frameworks.join(", ")}</p>
+            <p>{resume.skills.frameworks.join(", ")}</p>
             <strong>Concepts</strong>
-            <p>{resumeData.skills.concepts.join(", ")}</p>
+            <p>{resume.skills.concepts.join(", ")}</p>
           </section>
 
           <section>
             <h3>Languages</h3>
-            {resumeData.languages.map((l) => (
+            {resume.languages.map((l) => (
               <p key={l.name}>
                 {l.name} — {l.proficiency}
               </p>
@@ -55,12 +104,12 @@ const Cv = () => {
         <section className="cv-main">
           <div className="cv-section">
             <h3>Profile</h3>
-            <p>{resumeData.personal.careerObjective}</p>
+            <p>{resume.personal.careerObjective}</p>
           </div>
 
           <div className="cv-section">
             <h3>Experience</h3>
-            {resumeData.experience.map((exp) => (
+            {resume.experience.map((exp) => (
               <div key={exp.company} className="entry avoid-break">
                 <div className="entry-header">
                   <strong>{exp.position}</strong>
@@ -82,7 +131,7 @@ const Cv = () => {
 
           <div className="cv-section">
             <h3>Education</h3>
-            {resumeData.education.map((edu) => (
+            {resume.education.map((edu) => (
               <div key={edu.institution} className="entry avoid-break">
                 <div className="entry-header">
                   <strong>{edu.degree}</strong>
@@ -98,7 +147,7 @@ const Cv = () => {
 
           <div className="cv-section">
             <h3>Selected Projects</h3>
-            {resumeData.projects.slice(0, 3).map((project) => (
+            {resume.projects.slice(0, 3).map((project) => (
               <div key={project.id} className="entry avoid-break project-entry">
                 <strong>{project.title}</strong>
                 {project.link && (
@@ -243,7 +292,9 @@ const Cv = () => {
 
         /* PRINT FRIENDLY */
         @media print {
-          body {
+          body, html {
+            margin: 0;
+            padding: 0;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
           }
@@ -256,88 +307,29 @@ const Cv = () => {
           .cv-sidebar {
             position: relative !important;
             width: 280px;
-            height: auto;
             float: left;
+            margin: 0;
+            padding: 20px;
+            height: auto !important;
+            background-color: #1f2937 !important;
+            color: #f9fafb !important;
           }
           .cv-main {
-            margin-left: 280px;
-            padding: 20px !important;
+            margin: 0;
+            padding: 20px;
             background: white !important;
+            width: calc(100% - 280px);
+            float: left;
           }
-          a {
-            color: #fbbf24 !important;
-            text-decoration: underline !important;
+          a[href^="tel"], a[href^="mailto"], a[href^="http"] {
+            color: inherit !important;
+            text-decoration: none !important;
+          }
+          @page {
+            size: A4;
+            margin: 0;
           }
         }
-          @media print {
-  /* Force exact colors and remove default browser margins */
-  body, html {
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Remove smart links */
-  a[href^="tel"], a[href^="mailto"], a[href^="http"] {
-    color: inherit !important;
-    text-decoration: none !important;
-    -webkit-text-security: none !important;
-  }
-
-  .cv-toolbar {
-    display: none;
-  }
-
-  #cv-root {
-    flex-direction: row !important;
-  }
-
-  /* Sidebar fixed on left */
-  .cv-sidebar {
-    position: relative !important;
-    width: 280px;
-    float: left;
-    margin: 0;
-    padding: 20px;
-    height: auto !important;
-    background-color: #1f2937 !important; /* preserve color */
-    color: #f9fafb !important;
-  }
-
-  /* Main content next to sidebar */
-  .cv-main {
-    margin: 0;
-    padding: 20px;
-    background: white !important;
-    width: calc(100% - 280px);
-    float: left;
-  }
-
-  /* Avoid breaking inside entries */
-  .avoid-break {
-    page-break-inside: avoid;
-  }
-
-  h3, p, ul, li, strong, span {
-    
-  }
-}
-  @media print {
-  @page {
-    size: A4;
-    margin: 0; /* full-page content */
-  }
-
-  body, html {
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-
-
       `}</style>
     </>
   );

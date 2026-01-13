@@ -11,7 +11,7 @@ import Qualificaition from './Pages/Qualification/Qualification'
 import './App.css'
 import AddProjects from './Pages/Admin/AdminHome/ManageProjects/AddProjects/AddProjects';
 import EditProjects from './Pages/Admin/AdminHome/ManageProjects/EditProjects/EditProjects';
-import Cv from './Pages/Cv/Cv';
+import CvWrapper from './Pages/CvWrapper/CvWrapper';
 function App() {
   return (
     <>
@@ -30,7 +30,7 @@ function App() {
         <Route path='/AdminSignIn' element={<AdminSignIn/>}></Route>
         <Route path='/AdminHome' element={<AdminHome/>}></Route>
         <Route path='AdminHome/ManageProjects' element={<ManageProjects/>}></Route>
-        <Route path='/cv' element={<Cv/>}></Route>
+        <Route path='/cvwrapper' element={<CvWrapper/>}></Route>
         <Route path='AdminHome/ManageProjects/AddProjects' element={<AddProjects/>}></Route>
         <Route path='AdminHome/ManageProjects/EditProjects/:id' element={<EditProjects/>}>
           {/* <Route path="/:id"></Route> */}
