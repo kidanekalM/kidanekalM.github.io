@@ -53,22 +53,22 @@ const CvWrapper = () => {
 
   return (
     <>
-      <div className="cv-toolbar">
+      <div style={{ padding: "10px", background: "#f3f4f6", display: "flex", gap: "10px", alignItems: "center" }}>
         <input
+          type="text"
+          placeholder="Enter custom CV prompt…"
           value={userPrompt}
           onChange={(e) => setUserPrompt(e.target.value)}
-          placeholder="e.g. Optimize for AI/Robotics Master’s applications"
+          style={{ flex: 1, padding: "6px 10px", borderRadius: 4, border: "1px solid #ccc" }}
         />
-
-        <button onClick={handleCustomize}>
-          {loading ? "Customizing…" : "Customize"}
+        <button onClick={handleCustomize} style={{ padding: "6px 12px", backgroundColor: "#2563eb", color: "white", border: "none", borderRadius: 4 }}>
+          {loading ? "Generating…" : "Customize"}
         </button>
-
-        <button onClick={handleReset}>Reset</button>
-        <button onClick={handleCopyJson}>Copy JSON</button>
+        <button onClick={handleReset} style={{ padding: "6px 12px", border: "1px solid #ccc", borderRadius: 4 }}>
+          Reset
+        </button>
       </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <Cv resume={cvData} />
     </>
