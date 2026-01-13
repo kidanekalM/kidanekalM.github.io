@@ -1,147 +1,120 @@
-/* ===== Base ===== */
-
-#cv-print {
+/* ===== ROOT ===== */
+#cv-root {
+  display: grid;
+  grid-template-columns: 32% 68%;
   max-width: 210mm;
   margin: auto;
-  padding: 20mm;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  font-size: 12.5px;
+  min-height: 297mm;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 12px;
   color: #111;
-  line-height: 1.45;
 }
 
-/* ===== Toolbar ===== */
-
+/* ===== TOOLBAR ===== */
 .cv-toolbar {
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
-  background: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .cv-toolbar button {
-  font-size: 14px;
   padding: 6px 14px;
   cursor: pointer;
 }
 
-/* ===== Header ===== */
-
-.cv-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 18px;
+/* ===== SIDEBAR ===== */
+.cv-sidebar {
+  background: #1f2937; /* deep slate */
+  color: #f3f4f6;
+  padding: 20px;
 }
 
-.cv-header h1 {
-  font-size: 24px;
+.cv-sidebar h1 {
+  font-size: 20px;
   margin: 0;
 }
 
-.cv-header h2 {
-  font-size: 14px;
+.cv-sidebar h2 {
+  font-size: 13px;
   font-weight: 500;
-  margin: 4px 0 0;
-  color: #444;
+  margin: 4px 0 12px;
+  color: #d1d5db;
 }
 
-.header-right {
-  text-align: right;
+.cv-sidebar h3 {
+  margin-top: 16px;
   font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #4b5563;
 }
 
-.header-right a {
-  color: #000;
+.cv-sidebar p,
+.cv-sidebar a {
+  font-size: 11.5px;
+  color: #e5e7eb;
   text-decoration: none;
 }
 
-/* ===== Sections ===== */
+/* ===== MAIN ===== */
+.cv-main {
+  padding: 22px;
+  background: white;
+}
 
 .cv-section {
-  margin-top: 16px;
+  margin-bottom: 18px;
 }
 
 .cv-section h3 {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 8px;
+  border-bottom: 2px solid #2563eb;
+  margin-bottom: 6px;
 }
 
-/* ===== Entries ===== */
-
-.cv-entry {
+/* ===== ENTRIES ===== */
+.entry {
   margin-bottom: 10px;
 }
 
 .entry-header {
   display: flex;
   justify-content: space-between;
-}
-
-.entry-date {
-  font-size: 11.5px;
-  color: #555;
+  font-size: 12px;
 }
 
 .entry-sub {
-  font-size: 12px;
-  color: #444;
-}
-
-.entry-meta {
   font-size: 11.5px;
-  color: #555;
+  color: #444;
 }
 
 ul {
   margin: 4px 0 0 16px;
-  padding: 0;
 }
 
 li {
   margin-bottom: 3px;
 }
 
-/* ===== Profile ===== */
-
-.profile-text {
-  margin-top: 6px;
-}
-
-/* ===== Skills ===== */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 20px;
-}
-
-.skills-grid p {
-  margin: 2px 0 0;
-}
-
-/* ===== Print ===== */
-
+/* ===== PRINT ===== */
 @media print {
   @page {
     size: A4;
-    margin: 15mm;
+    margin: 0;
   }
 
   body * {
     visibility: hidden;
   }
 
-  #cv-print,
-  #cv-print * {
+  #cv-root,
+  #cv-root * {
     visibility: visible;
   }
 
-  #cv-print {
+  #cv-root {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
   }
 
   .cv-toolbar {
