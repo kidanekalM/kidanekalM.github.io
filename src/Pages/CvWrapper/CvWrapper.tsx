@@ -46,10 +46,6 @@ const CvWrapper = () => {
     setUserPrompt("");
   };
 
-  const handleCopyJson = () => {
-    navigator.clipboard.writeText(JSON.stringify(cvData, null, 2));
-    alert("CV JSON copied");
-  };
 
   return (
     <>
