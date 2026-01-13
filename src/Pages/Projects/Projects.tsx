@@ -6,7 +6,8 @@ import styles from './styles.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import projectRepo from './projectsRepo'
-const DATA_URL = '/data/site-data.json'
+import resumeData from '../../data/resume-data'
+const RESUME = resumeData
 
 
 export default function Projects() { 
@@ -14,23 +15,22 @@ export default function Projects() {
     const [projs,setProjs] = useState(projectRepo);
     const [curProj,setCurProj] = useState([{__id:"",title:"",link:"",picUrl:"",vidurl:"",desc:""}]);
     const {title} = useParams()
-    useEffect(()=>{(
-        fetch(DATA_URL)
-          .then(response=>response.json())
-          .then(data=>{
-            if (Array.isArray(data?.projects) && data.projects.length>0) {
-              const fallback = projectRepo as any[];
-              const byKey = new Map(fallback.map(p=>[(p as any).__id ?? (p as any).title, p]));
-              const merged = (data.projects as any[]).map(p=>{
-                const key = (p as any).__id ?? (p as any).title;
-                const base = byKey.get(key) || {};
-                return { ...base, ...p };
-              });
-              setProjs(merged);
-            }
-          })
-          .catch(()=>{})
-      )},[])
+    useEffect(()=>{
+        const fallback = projectRepo as any[];
+        const byTitle = new Map(fallback.map(p=>[(p as any).title, p]));
+        const mapped = (RESUME as any)?.projects?.map((p:any)=>{
+          const base = byTitle.get(p.title) || {};
+          return {
+            __id: base.__id || p.id || p.title,
+            title: p.title,
+            link: p.link || base.link || '',
+            picUrl: base.picUrl || '',
+            vidurl: base.vidurl || '',
+            desc: p.description || base.desc || ''
+          }
+        }) || [];
+        if(mapped.length>0){ setProjs(mapped); }
+      },[])
     console.log(title);
     useEffect(()=>{if(projs.length>1){setCurProj(projs.filter((pr)=>{return pr.title === title}))}},[projs])
     if((title!=undefined)&&(projs)){
