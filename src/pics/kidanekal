@@ -1,0 +1,13 @@
+{
+  "projects": [
+    {
+      "__id": "0",
+      "title": "Geez Document Retrieval System",
+      "link": "geezsearch.streamlit.app",
+      "desc": "This project develops a dedicated IR system for documents written in Ge'ez...",
+      "picUrl": "", 
+      "vidurl": ""
+    }
+  ],
+  "qualifications": []
+}

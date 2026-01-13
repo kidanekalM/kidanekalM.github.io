@@ -6,7 +6,7 @@ import styles from '../Projects/styles.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import QualRepo from './QualRepo'
-const API_URL = import.meta.env.VITE_API_LOCATION
+const DATA_URL = '/data/site-data.json'
 
 
 export default function Projects() { 
@@ -14,7 +14,23 @@ export default function Projects() {
     const [projs,setProjs] = useState(QualRepo);
     const [curProj,setCurProj] = useState([{__id:"",title:"",link:"",picUrl:"",vidurl:"",desc:""}]);
     const {title} = useParams()
-    useEffect(()=>{(fetch(API_URL+'Qualification').then(response=>response.json()).then(data=>{setProjs(data);} ))},[])
+    useEffect(()=>{(
+        fetch(DATA_URL)
+          .then(response=>response.json())
+          .then(data=>{
+            if (Array.isArray(data?.qualifications) && data.qualifications.length>0) {
+              const fallback = QualRepo as any[];
+              const byKey = new Map(fallback.map(p=>[(p as any).__id ?? (p as any).title, p]));
+              const merged = (data.qualifications as any[]).map(p=>{
+                const key = (p as any).__id ?? (p as any).title;
+                const base = byKey.get(key) || {};
+                return { ...base, ...p };
+              });
+              setProjs(merged);
+            }
+          })
+          .catch(()=>{})
+      )},[])
     console.log(title);
     useEffect(()=>{if(projs.length>1){setCurProj(projs.filter((pr)=>{return pr.title === title}))}},[projs])
     if((title!=undefined)&&(projs)){
