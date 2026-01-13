@@ -15,7 +15,10 @@ import Cv from './Pages/Cv/Cv';
 function App() {
   return (
     <>
-    <Header logo ={logo} />
+    {
+      location.href.includes('cv')?<></>:
+      <Header logo ={logo} />
+    }
       <Routes>
         <Route path='/'  element={<Home/>}></Route>
         <Route path='/Projects' element={<Projects/>}>
@@ -33,7 +36,10 @@ function App() {
           {/* <Route path="/:id"></Route> */}
         </Route>
       </Routes>
-    <Footer/>
+          {
+      location.href.includes('cv')?<></>:
+      <Footer />
+    }
     </>
   )
 }
