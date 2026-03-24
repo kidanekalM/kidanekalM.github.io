@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Large packaged app installers are hosted outside source control.
+public/downloads/*.dmg
+public/downloads/*.pkg
+public/downloads/*.zip

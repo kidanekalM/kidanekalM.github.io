@@ -12,6 +12,7 @@ import './App.css'
 import AddProjects from './Pages/Admin/AdminHome/ManageProjects/AddProjects/AddProjects';
 import EditProjects from './Pages/Admin/AdminHome/ManageProjects/EditProjects/EditProjects';
 import CvWrapper from './Pages/CvWrapper/CvWrapper';
+import TextToSpeech from './Pages/TextToSpeech/TextToSpeech';
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
         <Route path='/AdminHome' element={<AdminHome/>}></Route>
         <Route path='AdminHome/ManageProjects' element={<ManageProjects/>}></Route>
         <Route path='/cvwrapper' element={<CvWrapper/>}></Route>
+        <Route path='/text_to_speech' element={<TextToSpeech/>}></Route>
         <Route path='AdminHome/ManageProjects/AddProjects' element={<AddProjects/>}></Route>
         <Route path='AdminHome/ManageProjects/EditProjects/:id' element={<EditProjects/>}>
           {/* <Route path="/:id"></Route> */}
