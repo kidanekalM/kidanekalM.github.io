@@ -24,7 +24,8 @@ dist-ssr
 *.sw?
 .env
 
-# Large packaged app installers are hosted outside source control.
+# Large packaged app installers stay out of normal Git history.
 public/downloads/*.dmg
 public/downloads/*.pkg
 public/downloads/*.zip
+!public/downloads/text-to-speech-installer.dmg
