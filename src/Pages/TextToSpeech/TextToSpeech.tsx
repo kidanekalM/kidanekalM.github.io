@@ -1,8 +1,10 @@
 import styles from './styles.module.css';
 
-const INSTALLER_PATH = '/downloads/text-to-speech-installer.dmg';
+const MAC_INSTALLER_PATH = '/downloads/text-to-speech-installer.dmg';
+const WINDOWS_INSTALLER_PATH = '/downloads/text-to-speech-installer.exe';
 const PAGE_URL = 'https://kidanekal.vercel.app/text_to_speech';
-const DOWNLOAD_URL = 'https://kidanekal.vercel.app/downloads/text-to-speech-installer.dmg';
+const MAC_DOWNLOAD_URL = 'https://kidanekal.vercel.app/downloads/text-to-speech-installer.dmg';
+const WINDOWS_DOWNLOAD_URL = 'https://kidanekal.vercel.app/downloads/text-to-speech-installer.exe';
 
 function TextToSpeech() {
   return (
@@ -11,34 +13,38 @@ function TextToSpeech() {
         <p className={styles.eyebrow}>App Installer</p>
         <h1>Text to Speech</h1>
         <p className={styles.lead}>
-          A simple macOS desktop app installer page for direct distribution.
-          Download the `.dmg` and install it on Mac.
+          Download the latest desktop installer for macOS or Windows from one page.
         </p>
 
         <div className={styles.actions}>
-          <a className={styles.primaryAction} href={INSTALLER_PATH} download>
+          <a className={styles.primaryAction} href={MAC_INSTALLER_PATH} download>
             Download macOS Installer
           </a>
-          <a className={styles.secondaryAction} href={DOWNLOAD_URL}>
-            Open Direct Download
+          <a className={styles.secondaryAction} href={WINDOWS_INSTALLER_PATH} download>
+            Download Windows Installer
           </a>
         </div>
       </section>
 
       <section className={styles.cardGrid}>
         <article className={styles.card}>
-          <h2>Platform</h2>
-          <p>macOS</p>
-        </article>
-
-        <article className={styles.card}>
-          <h2>Installer</h2>
+          <h2>macOS</h2>
           <p>DMG package, 105 MB</p>
         </article>
 
         <article className={styles.card}>
-          <h2>Direct URL</h2>
-          <p>{DOWNLOAD_URL}</p>
+          <h2>Windows</h2>
+          <p>EXE package, 78 MB</p>
+        </article>
+
+        <article className={styles.card}>
+          <h2>macOS Direct URL</h2>
+          <p>{MAC_DOWNLOAD_URL}</p>
+        </article>
+
+        <article className={styles.card}>
+          <h2>Windows Direct URL</h2>
+          <p>{WINDOWS_DOWNLOAD_URL}</p>
         </article>
 
         <article className={styles.card}>
