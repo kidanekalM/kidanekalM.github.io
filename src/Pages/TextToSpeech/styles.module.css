@@ -95,6 +95,12 @@
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
+.command {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
 @media (max-width: 820px) {
   .cardGrid {
     grid-template-columns: 1fr;
