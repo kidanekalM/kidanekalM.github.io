@@ -140,7 +140,10 @@ export const resumeData: ResumeData = {
       responsibilities: [
         "Developing Link — a scalable multi-facility EMR system for Ethiopian healthcare",
         "Built a Pharmaceutical Manufacturer Information System aligned with Ethiopian FDA regulations",
-        "Collaborating with clinicians and product teams using agile workflows"
+        "Collaborating with clinicians and product teams using agile workflows",
+        "Contributed to a full-stack healthcare operations platform spanning public onboarding, clinic administration, reception, triage, doctor workflows, cashier, lab, imaging, pharmacy, inpatient, logistics, and super-admin controls",
+        "Worked across a layered backend architecture built around Link.Api, Link.Application, Link.Domain, and Link.Infrastructure, with a feature-oriented frontend supporting role-based dashboards and operational workflows",
+        "Helped stabilize workflow contracts across frontend, backend query behavior, seed data, and test environments to keep queues, reporting, and endpoint behavior aligned"
       ],
       technologies: [
         "C#",
@@ -153,7 +156,9 @@ export const resumeData: ResumeData = {
       achievements: [
         "Enabled interoperable patient data across clinics, hospitals, and labs",
         "Delivered low-bandwidth-optimized healthcare software",
-        "Improved regulatory compliance for local pharmaceutical manufacturers"
+        "Improved regulatory compliance for local pharmaceutical manufacturers",
+        "Supported a production-scale healthcare platform with seeded environments, endpoint maps, Playwright coverage, and facility-scoped operations",
+        "Strengthened consistency across queue propagation, reporting flows, and role-based workstreams as the platform matured from feature expansion into cross-system stabilization"
       ]
     },
     {
@@ -343,11 +348,15 @@ export const resumeData: ResumeData = {
       id: "link-emr",
       title: "Link — Multi-Facility EMR",
       description:
-        "National-scale EMR platform for Ethiopian clinics, hospitals, and labs.",
-      technologies: [".NET", "Next.js", "Healthcare IT"],
+        "Real-world healthcare operations platform for Ethiopian clinics, hospitals, and labs, built to support interoperable care delivery across many roles, facilities, and service lines.",
+      technologies: [".NET", "ASP.NET Core", "React", "Vite", "SQL Server", "Healthcare IT"],
       features: [
         "Interoperable patient records",
-        "Low-bandwidth optimization"
+        "Low-bandwidth optimization",
+        "Role-based workflows spanning reception, triage, doctor, cashier, lab, imaging, pharmacy, inpatient, logistics, and super-admin operations",
+        "Layered architecture with Link.Api, Link.Application, Link.Domain, and Link.Infrastructure boundaries",
+        "Facility-scoped operations, seeded environments, endpoint maps, and Playwright-backed workflow coverage",
+        "Queue, reporting, and workflow contract stabilization across frontend and backend subsystems"
       ]
     },
 

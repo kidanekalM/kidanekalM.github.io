@@ -49,7 +49,10 @@ const CvWrapper = () => {
 
   return (
     <>
-      <div style={{ padding: "10px", background: "#f3f4f6", display: "flex", gap: "10px", alignItems: "center" }}>
+      <div
+        className="cv-customizer"
+        style={{ padding: "10px", background: "#f3f4f6", display: "flex", gap: "10px", alignItems: "center" }}
+      >
         <input
           type="text"
           placeholder="Enter custom CV prompt…"
@@ -65,6 +68,14 @@ const CvWrapper = () => {
         </button>
       </div>
 
+
+      <style>{`
+        @media print {
+          .cv-customizer {
+            display: none !important;
+          }
+        }
+      `}</style>
 
       <Cv resume={cvData} />
     </>
