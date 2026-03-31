@@ -1,43 +1,65 @@
- import headerStyle from "./headerStyle.module.css"
- import {Link} from 'react-router-dom'
-import {HiMenu} from 'react-icons/hi'
-import {GrClose} from 'react-icons/gr'
- import { useState } from 'react';
- interface prop{
-    logo:string;
- }
- function Header({logo}:prop){
-    let [menu,setMenu] = useState(false)
-    let [title,setTitle] = useState("")
-   return <>
+import { useState } from "react";
+import { HiMenu } from "react-icons/hi";
+import { GrClose } from "react-icons/gr";
+import { Link, NavLink } from "react-router-dom";
+import resumeData from "../../data/resume-data";
+import headerStyle from "./headerStyle.module.css";
+
+interface HeaderProps {
+  logo: string;
+}
+
+const navigation = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/projects" },
+  { label: "Qualifications", to: "/qualification" },
+  { label: "Resume", to: "/cvwrapper" },
+  { label: "TTS App", to: "/text_to_speech" },
+];
+
+function Header({ logo }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
     <header className={headerStyle.header}>
       <div className={headerStyle.headerInner}>
-        <Link to={"/"} onClick={()=> {setTitle("")}}>
-          <div className={headerStyle.logo}>
-            <img src={logo} alt="Portfolio logo" />
+        <Link to="/" className={headerStyle.brand} onClick={() => setMenuOpen(false)}>
+          <img src={logo} alt="Kidanekal logo" className={headerStyle.logo} />
+          <div>
+            <p className={headerStyle.name}>{resumeData.personal.fullName}</p>
+            <p className={headerStyle.role}>{resumeData.personal.tagline}</p>
           </div>
         </Link>
-        <h1 className={headerStyle.title}>{title}</h1>
-        <GrClose size={36} className={menu? headerStyle.closeBtn:headerStyle.displayNone} onClick={function(){setMenu(false)}}/>
-        <HiMenu size={36} className={headerStyle.openBtn} onClick={function(){setMenu(true)}}/>
-        <nav className={menu?headerStyle.nav:headerStyle.menuHidden}>
-          <ul className={headerStyle.list}>
-            <Link to="/" onClick={function(){setMenu(false); setTitle("")}}>
-              <li>Home</li>
-            </Link>
-            <Link to="/Projects" onClick={function(){setMenu(false); setTitle("Projects")}}>
-              <li>Projects</li>
-            </Link>
-            <Link to="/Qualification" onClick={function(){setMenu(false); setTitle("Qualification")}}>
-              <li>Qualification</li>
-            </Link>
-            <a href="tel:+251922335133" onClick={function(){setMenu(false); setTitle("Contact")}}>
-              <li>Contact</li>
-            </a>
-          </ul>
+
+        <button
+          type="button"
+          className={headerStyle.menuButton}
+          onClick={() => setMenuOpen((value) => !value)}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        >
+          {menuOpen ? <GrClose size={22} /> : <HiMenu size={24} />}
+        </button>
+
+        <nav className={`${headerStyle.nav} ${menuOpen ? headerStyle.navOpen : ""}`}>
+          {navigation.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `${headerStyle.navLink} ${isActive ? headerStyle.active : ""}`
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          <a className={headerStyle.contactLink} href={`mailto:${resumeData.personal.email}`}>
+            Contact
+          </a>
         </nav>
       </div>
     </header>
-    </>
+  );
 }
-export default Header
+
+export default Header;

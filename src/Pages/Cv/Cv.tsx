@@ -1,6 +1,4 @@
 import React, { useRef, useState } from "react";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
 
 export interface ResumeData {
   personal: {
@@ -70,6 +68,11 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
     setIsExporting(true);
 
     try {
+      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+        import("html2canvas"),
+        import("jspdf"),
+      ]);
+
       const pdf = new jsPDF("p", "mm", "a4");
       const pageWidthMm = pdf.internal.pageSize.getWidth();
       const pageHeightMm = pdf.internal.pageSize.getHeight();

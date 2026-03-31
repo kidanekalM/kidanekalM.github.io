@@ -1,20 +1,34 @@
-import styles from './style.module.css'
+import resumeData from "../../data/resume-data";
+import styles from "./style.module.css";
 
 export default function Footer() {
-    const year = new Date().getFullYear();
-    return (
-      <footer className={styles.container}>
-        <div className={styles.inner}>
-          <nav>
-            <ul className={styles.list}>
-              <li><a className={styles.anch} href="tel:+251922335151">Phone</a></li>
-              <li><a className={styles.anch} href="mailto:akidanekal@gmail.com">E-mail</a></li>
-            </ul>
-          </nav>
-          <div className={styles.copy}>
-            © {year} Kidanekal Alem. All rights reserved.
-          </div>
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className={styles.container}>
+      <div className={styles.inner}>
+        <div>
+          <p className={styles.heading}>{resumeData.personal.fullName}</p>
+          <p className={styles.tagline}>{resumeData.personal.tagline}</p>
         </div>
-      </footer>
-    );
+
+        <div className={styles.links}>
+          <a className={styles.link} href={`mailto:${resumeData.personal.email}`}>
+            {resumeData.personal.email}
+          </a>
+          <a className={styles.link} href={resumeData.personal.githubUrl} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a className={styles.link} href={resumeData.personal.linkedinUrl} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a className={styles.link} href={resumeData.personal.portfolioUrl} target="_blank" rel="noreferrer">
+            Website
+          </a>
+        </div>
+
+        <p className={styles.copy}>© {year} {resumeData.personal.fullName}</p>
+      </div>
+    </footer>
+  );
 }

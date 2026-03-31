@@ -1,20 +1,364 @@
-.servicesCont{
-    background-color: #f0f0f0;
-    box-shadow: 0 0 2px 2px grey;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: max-content;
-    width: 100vw;
+.page {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 380px);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.heroCopy,
+.heroCard,
+.panel,
+.educationCard,
+.certCard,
+.projectCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.1), transparent 28%),
+    rgba(17, 19, 24, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.heroCopy {
+  padding: 2.4rem;
+}
+
+.kicker,
+.sectionLabel,
+.cardLabel {
+  margin: 0 0 0.9rem;
+  color: #7dd3fc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.title {
+  margin: 0;
+  max-width: 12ch;
+  color: #f8fafc;
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  line-height: 0.95;
+}
+
+.summary {
+  max-width: 44rem;
+  margin: 1.4rem 0 0;
+  color: rgba(231, 233, 238, 0.82);
+  font-size: 1.02rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.primaryAction,
+.secondaryAction,
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 3.2rem;
+  padding: 0.9rem 1.2rem;
+}
+
+.primaryAction {
+  background: linear-gradient(135deg, #22d3ee, #4f46e5);
+  color: #09111b;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.metrics {
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.metrics div {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metrics dt {
+  color: rgba(154, 163, 175, 0.88);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.metrics dd {
+  margin: 0.45rem 0 0;
+  color: #f8fafc;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.heroCard {
+  padding: 1.5rem;
+}
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  object-fit: cover;
+  border-radius: 22px;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+.heroCard h2,
+.section h2,
+.panel h2 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+.heroCard p {
+  color: rgba(231, 233, 238, 0.78);
+}
+
+.stackList {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.stackList li,
+.projectMeta span {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(231, 233, 238, 0.88);
+  font-size: 0.85rem;
+}
+
+.section {
+  margin-top: 4rem;
+}
+
+.sectionHeader {
+  margin-bottom: 1.4rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  max-width: 18ch;
+  color: #f8fafc;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.projectCard {
+  overflow: hidden;
+}
+
+.projectMedia,
+.projectFallback {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.projectMedia {
+  object-fit: cover;
+}
+
+.projectFallback {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #0f172a, #312e81);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.projectBody {
+  padding: 1.2rem 1.2rem 1.35rem;
+}
+
+.projectMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.projectBody h3,
+.timelineItem h3,
+.educationCard h3,
+.certCard h3 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+.projectBody p,
+.timelineItem p,
+.educationCard p,
+.certCard p {
+  color: rgba(231, 233, 238, 0.78);
+}
+
+.textLink {
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+  color: #7dd3fc;
+}
+
+.dualSection {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.panel {
+  padding: 1.5rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.3rem;
+}
+
+.timelineItem {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timelineMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(154, 163, 175, 0.88);
+  font-size: 0.84rem;
+}
+
+.company {
+  margin-top: 0.25rem;
+  color: #7dd3fc;
+}
+
+.skillBlocks {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.skillBlocks div {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skillBlocks h3 {
+  margin: 0 0 0.35rem;
+  color: #f8fafc;
+}
+
+.skillBlocks p {
+  margin: 0;
+  color: rgba(231, 233, 238, 0.78);
+}
+
+.credentialsLayout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1rem;
+}
+
+.educationCard {
+  padding: 1.5rem;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.certCard {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.certImage {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.certCard span {
+  color: rgba(154, 163, 175, 0.88);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .dualSection,
+  .credentialsLayout {
+    grid-template-columns: 1fr;
   }
-  .services{
-    background-color: #f0f0f0;
-    gap: 10rem;
-    width: 100%;
-    padding: 5rem;
-    display: flex;
-    align-items: center;
-    height: max-content;
+
+  .projectGrid,
+  .certGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100%, calc(100% - 1.2rem));
+    padding-top: 1.2rem;
+  }
+
+  .heroCopy,
+  .heroCard,
+  .panel,
+  .educationCard {
+    padding: 1.2rem;
+  }
+
+  .projectGrid,
+  .certGrid,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineMeta {
     flex-direction: column;
-    justify-content: center;
-    }
+    gap: 0.25rem;
+  }
+}

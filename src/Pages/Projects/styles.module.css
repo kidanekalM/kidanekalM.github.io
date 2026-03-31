@@ -1,26 +1,220 @@
+.page {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
 
-.controls{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 50vh;
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: #7dd3fc;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
 
+.listHero,
+.detailHero,
+.card,
+.compactItem {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.1), transparent 26%),
+    rgba(17, 19, 24, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
 }
-.control{
-    margin: 0;
-    border: 0;
-    height: max-content;
-    width: max-content;
-    padding: 5px;
-    border-radius: 10vh;
-    background-color: transparent;
-    opacity: 100%;
+
+.listHero {
+  padding: 2rem;
 }
-.control:hover{
-    scale: 1.3px;
+
+.listHero h1,
+.detailCopy h1,
+.sectionHeader h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.98;
 }
-.controlImg{
-    height: 40px;
-    width: 40px;
+
+.description {
+  margin: 1rem 0 0;
+  max-width: 46rem;
+  color: rgba(231, 233, 238, 0.8);
+}
+
+.grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.cardMedia,
+.cardFallback,
+.media,
+.mediaFallback {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.cardMedia,
+.media {
+  display: block;
+  background: #0f172a;
+}
+
+.cardFallback,
+.mediaFallback {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #111827, #312e81);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.cardBody {
+  padding: 1.2rem;
+}
+
+.cardBody h2,
+.cardBody h3,
+.detailCopy h1 {
+  color: #f8fafc;
+}
+
+.cardBody p,
+.detailCopy p {
+  color: rgba(231, 233, 238, 0.8);
+}
+
+.cardMeta,
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.cardMeta span,
+.tagList span {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(231, 233, 238, 0.88);
+  font-size: 0.84rem;
+}
+
+.detailHero {
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 1rem;
+}
+
+.detailCopy {
+  padding: 1rem 0.6rem 1rem 0.8rem;
+}
+
+.featureList {
+  margin: 1.3rem 0 0;
+  padding-left: 1.1rem;
+  color: rgba(231, 233, 238, 0.84);
+}
+
+.featureList li + li {
+  margin-top: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.primaryAction {
+  background: linear-gradient(135deg, #22d3ee, #4f46e5);
+  color: #081018;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+.mediaPanel {
+  display: flex;
+  align-items: center;
+}
+
+.sectionHeader {
+  margin-bottom: 1rem;
+}
+
+.moreSection {
+  margin-top: 2rem;
+}
+
+.compactList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.compactItem {
+  padding: 1.15rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.compactItem span {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.compactItem small {
+  color: rgba(154, 163, 175, 0.88);
+}
+
+@media (max-width: 980px) {
+  .grid,
+  .compactList,
+  .detailHero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100%, calc(100% - 1.2rem));
+    padding-top: 1.2rem;
+  }
+
+  .listHero,
+  .detailHero {
+    padding: 1.2rem;
+  }
+
+  .grid,
+  .compactList {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,52 +1,87 @@
-import forwImg from '../../pics/forward.svg'
-import backImg from '../../pics/backward.svg'
-import ThumbnailProjects from '../../components/ThumbnailProjects/ThumbnailProjects'
-import ProjectDetail from '../../components/ProjectDetail/ProjectDetail'
-import styles from '../Projects/styles.module.css'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import QualRepo from './QualRepo'
-import resumeData from '../../data/resume-data'
-const RESUME = resumeData
+import { Link, useParams } from "react-router-dom";
+import resumeData from "../../data/resume-data";
+import { portfolioCertifications, slugify } from "../../lib/portfolio";
+import styles from "./Qualification.module.css";
 
+export default function Qualification() {
+  const { slug } = useParams();
+  const selectedCertification = portfolioCertifications.find(
+    (certification) => certification.slug === slug || certification.id === slug
+  );
 
-export default function Projects() { 
-    const [slider,setSlider] = useState(0)
-    const [projs,setProjs] = useState(QualRepo);
-    const [curProj,setCurProj] = useState([{__id:"",title:"",link:"",picUrl:"",vidurl:"",desc:""}]);
-    const {title} = useParams()
-    useEffect(()=>{
-        const fallback = QualRepo as any[];
-        const byTitle = new Map(fallback.map(p=>[(p as any).title, p]));
-        const mapped = (RESUME as any)?.certifications?.map((q:any)=>{
-          const base = byTitle.get(q.title) || {};
-          return {
-            __id: base.__id || q.id || q.title,
-            title: q.title,
-            link: base.link || '',
-            picUrl: base.picUrl || '',
-            vidurl: base.vidurl || '',
-            desc: `${q.issuer} — ${q.issueDate}`
-          }
-        }) || [];
-        if(mapped.length>0){ setProjs(mapped); }
-      },[])
-    console.log(title);
-    useEffect(()=>{if(projs.length>1){setCurProj(projs.filter((pr)=>{return pr.title === title}))}},[projs])
-    if((title!=undefined)&&(projs)){
-    return<>
-        <div className={styles.controls} >
-            <button  onClick={function(){setSlider(((slider==0)?curProj.length-1:slider-1))}} className={styles.control}><img src={backImg} alt="Go back" className={styles.controlImg} /></button>
-            <button onClick={function(){setSlider((slider+1)%curProj.length)}} className={styles.control}><img src={forwImg} alt="Go forward" className={styles.controlImg} /></button>
+  if (selectedCertification) {
+    return (
+      <main className={styles.page}>
+        <section className={styles.detailCard}>
+          {selectedCertification.image && (
+            <img
+              src={selectedCertification.image}
+              alt={selectedCertification.title}
+              className={styles.detailImage}
+            />
+          )}
+          <div className={styles.detailCopy}>
+            <p className={styles.eyebrow}>Certification</p>
+            <h1>{selectedCertification.title}</h1>
+            <p>{selectedCertification.issuer}</p>
+            <p>Issued {selectedCertification.issueDate}</p>
+            <Link className={styles.backLink} to="/qualification">
+              Back to all qualifications
+            </Link>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <p className={styles.eyebrow}>Qualifications</p>
+        <h1>Education, certifications, and foundational training.</h1>
+        <p className={styles.description}>
+          Structured from the same resume JSON so the qualifications page stays aligned with the
+          portfolio and CV.
+        </p>
+      </section>
+
+      <section className={styles.educationCard}>
+        <p className={styles.eyebrow}>Education</p>
+        <h2>{resumeData.education[0].degree}</h2>
+        <p>{resumeData.education[0].institution}</p>
+        <p>
+          {resumeData.education[0].startDate} - {resumeData.education[0].endDate}
+        </p>
+        <p>GPA {resumeData.education[0].gpa} · {resumeData.education[0].honors}</p>
+        <div className={styles.courseList}>
+          {resumeData.education[0].relevantCourses.map((course) => (
+            <span key={course}>{course}</span>
+          ))}
         </div>
-        {console.log(projs)}
-        {console.log(slider)}
-        <ProjectDetail title={curProj[slider].title}  link={curProj[slider].link} vidurl={curProj[slider].vidurl} desc={curProj[slider].desc} pic={curProj[slider].picUrl} />
-        <ThumbnailProjects title="" type='Qualification' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
-    </>  
-    }
-    else{
-        return  <ThumbnailProjects title="" type='Qualification' callToAction='Contact Us' link='tel:+251922335133' projs={projs}/>
+      </section>
 
-    }
+      <section className={styles.grid}>
+        {portfolioCertifications.map((certification) => (
+          <Link
+            key={certification.id}
+            to={`/qualification/${slugify(certification.id || certification.title)}`}
+            className={styles.card}
+          >
+            {certification.image && (
+              <img
+                src={certification.image}
+                alt={certification.title}
+                className={styles.cardImage}
+              />
+            )}
+            <div>
+              <h3>{certification.title}</h3>
+              <p>{certification.issuer}</p>
+              <small>{certification.issueDate}</small>
+            </div>
+          </Link>
+        ))}
+      </section>
+    </main>
+  );
 }
