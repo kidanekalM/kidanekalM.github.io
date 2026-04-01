@@ -49,12 +49,12 @@ function TextToSpeech() {
 
         <article className={styles.card}>
           <h2>macOS Direct URL</h2>
-          <p>{MAC_DOWNLOAD_URL}</p>
+          <p>{MAC_INSTALLER_URL}</p>
         </article>
 
         <article className={styles.card}>
           <h2>Windows Direct URL</h2>
-          <p>{WINDOWS_DOWNLOAD_URL}</p>
+          <p>{WINDOWS_INSTALLER_URL}</p>
         </article>
 
         <article className={styles.card}>
