@@ -1,10 +1,11 @@
 import styles from './styles.module.css';
 
 const RELEASE_BASE_URL = 'https://github.com/kidanekalM/text_to_speech/releases/latest/download';
-const MAC_INSTALLER_URL = `${RELEASE_BASE_URL}/text-to-speech-installer.dmg`;
-const WINDOWS_INSTALLER_URL = `${RELEASE_BASE_URL}/text-to-speech-installer.exe`;
-const LINUX_APPIMAGE_URL = `${RELEASE_BASE_URL}/text-to-speech-linux.AppImage`;
-const LINUX_TARBALL_URL = `${RELEASE_BASE_URL}/text-to-speech-linux.tar.gz`;
+const RELEASE_VERSION = '1.0.0';
+const MAC_INSTALLER_URL = `${RELEASE_BASE_URL}/AFA-${RELEASE_VERSION}.dmg`;
+const WINDOWS_INSTALLER_URL = `${RELEASE_BASE_URL}/AFA%20Setup%20${RELEASE_VERSION}.exe`;
+const LINUX_APPIMAGE_URL = `${RELEASE_BASE_URL}/AFA-${RELEASE_VERSION}.AppImage`;
+const LINUX_TARBALL_URL = `${RELEASE_BASE_URL}/text-to-speech-virtual-mic-${RELEASE_VERSION}.tar.gz`;
 const LINUX_MANIFEST_URL = `${RELEASE_BASE_URL}/latest-linux.yml`;
 const PAGE_URL = 'https://kidanekal.vercel.app/text_to_speech';
 
