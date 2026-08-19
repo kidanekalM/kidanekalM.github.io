@@ -35,5 +35,8 @@
     "react-router-dom": "^6.15.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.1"
   }
 }
