@@ -3,9 +3,8 @@
   top: 0;
   z-index: 100;
   backdrop-filter: blur(18px);
-  background:
-    linear-gradient(180deg, rgba(11, 12, 16, 0.94), rgba(11, 12, 16, 0.78));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(244,240,231,.9);
+  border-bottom: 1px solid var(--line);
 }
 
 .headerInner {
@@ -35,7 +34,7 @@
 
 .name {
   margin: 0;
-  color: #f7fafc;
+  color: var(--ink);
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -43,7 +42,7 @@
 
 .role {
   margin: 0.15rem 0 0;
-  color: rgba(231, 233, 238, 0.68);
+  color: var(--muted);
   font-size: 0.78rem;
 }
 
@@ -51,7 +50,7 @@
   display: none;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
-  color: #f7fafc;
+  color: var(--ink);
   width: 42px;
   height: 42px;
   border-radius: 12px;
@@ -67,7 +66,7 @@
 .contactLink {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  color: rgba(231, 233, 238, 0.86);
+  color: var(--muted);
   font-size: 0.95rem;
   font-weight: 600;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -76,17 +75,17 @@
 .navLink:hover,
 .contactLink:hover,
 .active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  background: #121f2609;
 }
 
 .contactLink {
-  background: linear-gradient(135deg, #22d3ee, #4f46e5);
-  color: #06111a;
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .contactLink:hover {
-  color: #06111a;
+  color: var(--paper);
   transform: translateY(-1px);
 }
 
@@ -109,7 +108,7 @@
     gap: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 22px;
-    background: rgba(11, 12, 16, 0.96);
+    background: var(--paper);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
   }
 

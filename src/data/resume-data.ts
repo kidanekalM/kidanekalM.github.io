@@ -201,6 +201,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "reporting-system",
+      link: "https://pirs.vercel.app",
       title: "Civic Reporting System",
       description:
         "Location-based civic reporting platform that clusters community issues and routes them to relevant authorities.",
@@ -215,6 +216,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "graphics-simulator",
+      link: "https://github.com/kidanekalM/Raster",
       title: "Raster Graphics Simulator",
       description:
         "Sandbox environment for experimenting with raster graphics algorithms and rendering trade-offs.",
@@ -228,6 +230,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "hafcom",
+      link: "https://hafcom.vercel.app",
       title: "HaFCoM Corporate Website",
       description:
         "Official website for an Ethiopian construction and architectural firm.",
@@ -255,6 +258,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "cpu",
+      link: "https://github.com/kidanekalM/CPU_Scheduling_Algorithm_Visualizer",
       title: "CPU Scheduling Algorithm Visualizer",
       description:
         "Interactive simulator for FCFS, SJF, and Round Robin scheduling algorithms.",
@@ -268,6 +272,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "producer-consumer",
+      link: "https://github.com/kidanekalM/Producer-and-Consumer",
       title: "Producer–Consumer Simulator",
       description:
         "Visual simulator of concurrency synchronization using a bounded buffer.",
@@ -281,6 +286,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "riddle",
+      link: "https://github.com/kidanekalM/riddle",
       title: "River Crossing Riddle",
       description:
         "JavaScript implementation of a classic logic puzzle using state transitions.",
@@ -313,6 +319,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "css-gallery",
+      link: "https://github.com/kidanekalM/nature-css",
       title: "CSS Projects Gallery",
       description:
         "Collection of CSS experiments focused on layout, animation, and responsiveness.",
@@ -342,6 +349,62 @@ export const resumeData: ResumeData = {
       technologies: ["Python", "Machine Learning"],
       features: ["Linear classification", "Iterative learning"],
       media: { images: ["percPic.png"] }
+    },
+
+    {
+      id: "opian-erp",
+      title: "Opian ERP",
+      link: "https://github.com/kidanekalM/opian-erp-fe",
+      description:
+        "A modular, agent-driven ERP frontend designed for maintainable business operations across independently owned feature domains.",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query"],
+      features: [
+        "Feature-owned modules with shared application shell boundaries",
+        "Typed server-state and API client architecture",
+        "Automated formatting, linting, build, test, and pull-request quality checks"
+      ]
+    },
+
+    {
+      id: "afa-text-to-speech",
+      title: "AFA Text-to-Speech",
+      link: "https://github.com/kidanekalM/text_to_speech",
+      description:
+        "A cross-platform floating desktop app that turns typed text into speech and routes the audio into meeting applications as virtual microphone input.",
+      technologies: ["Electron", "JavaScript", "Swift", "C#", "Linux Audio"],
+      features: [
+        "Always-on-top desktop speaking interface",
+        "Virtual audio routing through BlackHole, VB-CABLE, PipeWire, and PulseAudio",
+        "Packaged Windows and Linux builds with diagnostics and setup flows"
+      ]
+    },
+
+    {
+      id: "ethio-tech-repository",
+      title: "Ethiopian Tech Services Directory",
+      link: "https://ethio-tech-repo.vercel.app",
+      description:
+        "A curated, open developer directory for Ethiopian payment, messaging, hosting, fintech, and market-data services.",
+      technologies: ["HTML", "Open Source", "Developer Documentation"],
+      features: [
+        "Locally relevant API and platform discovery",
+        "Categorized payment, SMS, hosting, fintech, and data resources",
+        "Contribution-friendly public repository"
+      ]
+    },
+
+    {
+      id: "efficiency-metric",
+      title: "Efficiency Metric Calculator",
+      link: "https://github.com/kidanekalM/Efficiency_Metric_Calculator",
+      description:
+        "An interactive implementation of a custom metric for comparing physical value by weight, cost, and volume.",
+      technologies: ["JavaScript", "HTML", "CSS", "Applied Mathematics"],
+      features: [
+        "Weight-relative cost and volume comparison",
+        "Browser-based calculation and result exploration",
+        "Companion implementation for an original technical article"
+      ]
     },
 
     {
