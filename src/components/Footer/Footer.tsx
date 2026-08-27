@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div>
           <p className={styles.heading}>{resumeData.personal.fullName}</p>
-          <p className={styles.tagline}>{resumeData.personal.tagline}</p>
+          <p className={styles.tagline}>Observe the system. Find the constraint. Build what works.</p>
         </div>
 
         <div className={styles.links}>
@@ -27,7 +27,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className={styles.copy}>© {year} {resumeData.personal.fullName}</p>
+        <p className={styles.copy}>© {year} / Addis Ababa</p>
       </div>
     </footer>
   );

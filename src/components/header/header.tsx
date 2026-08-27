@@ -5,10 +5,6 @@ import { Link, NavLink } from "react-router-dom";
 import resumeData from "../../data/resume-data";
 import headerStyle from "./headerStyle.module.css";
 
-interface HeaderProps {
-  logo: string;
-}
-
 const navigation = [
   { label: "Home", to: "/" },
   { label: "Projects", to: "/projects" },
@@ -17,14 +13,13 @@ const navigation = [
   { label: "TTS App", to: "/text_to_speech" },
 ];
 
-function Header({ logo }: HeaderProps) {
+function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className={headerStyle.header}>
       <div className={headerStyle.headerInner}>
         <Link to="/" className={headerStyle.brand} onClick={() => setMenuOpen(false)}>
-          <img src={logo} alt="Kidanekal logo" className={headerStyle.logo} />
           <div>
             <p className={headerStyle.name}>{resumeData.personal.fullName}</p>
             <p className={headerStyle.role}>{resumeData.personal.tagline}</p>

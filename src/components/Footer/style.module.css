@@ -7,7 +7,7 @@
 .inner {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 2rem 0 2.4rem;
+  padding: 3rem 0;
   display: grid;
   grid-template-columns: 1.2fr 1fr auto;
   align-items: center;
@@ -17,7 +17,8 @@
 .heading {
   margin: 0;
   color: var(--paper);
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .tagline {
@@ -39,7 +40,7 @@
 }
 
 .link:hover {
-  color: #f17b64;
+  color: #8eb1ff;
 }
 
 .copy {

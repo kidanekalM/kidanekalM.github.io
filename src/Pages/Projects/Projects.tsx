@@ -21,6 +21,7 @@ export default function Projects() {
               ))}
             </div>
 
+            <p className={styles.featureLabel}>What it does</p>
             <ul className={styles.featureList}>
               {selectedProject.features.map((feature) => (
                 <li key={feature}>{feature}</li>
@@ -38,7 +39,17 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open link
+                  Open live project
+                </a>
+              )}
+              {selectedProject.repositoryUrl && (
+                <a
+                  className={styles.secondaryAction}
+                  href={selectedProject.repositoryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View source
                 </a>
               )}
             </div>
@@ -60,6 +71,23 @@ export default function Projects() {
             )}
           </div>
         </section>
+
+        {selectedProject.story && (
+          <section className={styles.caseStudy} aria-labelledby="case-study-title">
+            <header className={styles.caseStudyHeader}>
+              <p className={styles.eyebrow}>Inside the build</p>
+              <h2 id="case-study-title">Problem first. Technology second.</h2>
+              <p>Observe / test / build / refine</p>
+            </header>
+            <div className={styles.storyGrid}>
+              <article><span>01</span><p>Problem</p><h3>{selectedProject.story.problem}</h3></article>
+              <article><span>02</span><p>Constraint</p><h3>{selectedProject.story.constraint}</h3></article>
+              <article><span>03</span><p>My contribution</p><h3>{selectedProject.story.contribution}</h3></article>
+              <article><span>04</span><p>Technical decision</p><h3>{selectedProject.story.decision}</h3></article>
+              <article className={styles.outcome}><span>05</span><p>Outcome</p><h3>{selectedProject.story.outcome}</h3></article>
+            </div>
+          </section>
+        )}
 
         <section className={styles.moreSection}>
           <div className={styles.sectionHeader}>

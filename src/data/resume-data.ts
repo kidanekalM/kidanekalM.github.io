@@ -53,6 +53,14 @@ export interface Project {
   title: string;
   description: string;
   link?: string;
+  repositoryUrl?: string;
+  story?: {
+    problem: string;
+    constraint: string;
+    contribution: string;
+    decision: string;
+    outcome: string;
+  };
   technologies: string[];
   features: string[];
   media?: {
@@ -352,6 +360,28 @@ export const resumeData: ResumeData = {
     },
 
     {
+      id: "safe-deal",
+      title: "SafeDeal Hybrid Escrow",
+      link: "https://safe-deal.vercel.app",
+      repositoryUrl: "https://github.com/kidanekalM/SafeDeal",
+      description:
+        "A hybrid escrow platform for secure Ethiopian transactions, combining Chapa payments with blockchain-anchored records for transparent, auditable deal states.",
+      technologies: ["Go", "React", "TypeScript", "PostgreSQL", "Ethereum", "RabbitMQ"],
+      features: [
+        "Milestone-based ETB escrow through Chapa",
+        "Buyer, seller, and mediator workflows with dispute resolution",
+        "Ethereum state anchoring, real-time WebSocket updates, and event-driven processing"
+      ],
+      story: {
+        problem: "Online deals need a trusted way to hold and release Ethiopian Birr without asking users to treat cryptocurrency as the payment rail.",
+        constraint: "The product has to preserve local payment compliance while creating an independent, tamper-resistant audit trail for each deal state.",
+        contribution: "Designed and built the product flow across buyer, seller, mediator, milestone, dispute, payment, and real-time notification concerns.",
+        decision: "Use Chapa for regulated ETB movement, then anchor transaction-state evidence to Ethereum while RabbitMQ and WebSockets coordinate asynchronous updates.",
+        outcome: "Delivered a working public escrow product with auditable state transitions, milestone release, mediation, and separate live and source access."
+      }
+    },
+
+    {
       id: "opian-erp",
       title: "Opian ERP",
       link: "https://github.com/kidanekalM/opian-erp-fe",
@@ -362,7 +392,14 @@ export const resumeData: ResumeData = {
         "Feature-owned modules with shared application shell boundaries",
         "Typed server-state and API client architecture",
         "Automated formatting, linting, build, test, and pull-request quality checks"
-      ]
+      ],
+      story: {
+        problem: "A growing ERP frontend can quickly become a shared-file bottleneck where teams overwrite one another and business behavior leaks into generic UI code.",
+        constraint: "Multiple feature teams need independent ownership while permissions, accounting values, and lifecycle rules remain controlled by backend contracts.",
+        contribution: "Established the frontend foundation, module ownership rules, shared shell boundaries, typed API access, server-state conventions, and quality gates.",
+        decision: "Organize work by business feature, use TanStack Query for server state, and keep the shared application shell separate from module behavior.",
+        outcome: "Created a maintainable ERP frontend foundation that supports parallel feature delivery with automated build, lint, formatting, and test checks."
+      }
     },
 
     {
@@ -376,7 +413,14 @@ export const resumeData: ResumeData = {
         "Always-on-top desktop speaking interface",
         "Virtual audio routing through BlackHole, VB-CABLE, PipeWire, and PulseAudio",
         "Packaged Windows and Linux builds with diagnostics and setup flows"
-      ]
+      ],
+      story: {
+        problem: "People who cannot or do not want to speak in a meeting need typed speech to appear to conferencing software as microphone input, not just play through speakers.",
+        constraint: "Virtual-audio installation and routing differ substantially across macOS, Windows, and Linux, and packaging must not promise drivers that are absent.",
+        contribution: "Built the floating desktop interface, shared speech controller, platform-specific routing and driver checks, diagnostics, onboarding, and distributable builds.",
+        decision: "Separate speech generation from audio routing and use each platform's established virtual device layer: BlackHole, VB-CABLE, or PipeWire/PulseAudio.",
+        outcome: "Produced shareable Windows and Linux builds with setup diagnostics, while keeping unfinished platform capabilities explicit rather than hiding them."
+      }
     },
 
     {
@@ -420,7 +464,14 @@ export const resumeData: ResumeData = {
         "Layered architecture with Link.Api, Link.Application, Link.Domain, and Link.Infrastructure boundaries",
         "Facility-scoped operations, seeded environments, endpoint maps, and Playwright-backed workflow coverage",
         "Queue, reporting, and workflow contract stabilization across frontend and backend subsystems"
-      ]
+      ],
+      story: {
+        problem: "Healthcare facilities need one operational record that follows a patient across reception, clinical care, diagnostics, payment, pharmacy, and inpatient services.",
+        constraint: "The system spans many roles and facilities, must remain usable in low-bandwidth environments, and cannot tolerate drift between queues, seed data, API contracts, and UI workflow names.",
+        contribution: "Worked across the React frontend and layered ASP.NET Core backend, building role-based workflows and stabilizing queue, reporting, seed, and endpoint contracts.",
+        decision: "Model explicit facility-scoped domains and layered application boundaries, then use role queues and end-to-end workflow tests to keep subsystem contracts aligned.",
+        outcome: "Helped move Link from broad feature construction into cross-system stabilization across a real multi-domain healthcare operations platform."
+      }
     },
 
     {

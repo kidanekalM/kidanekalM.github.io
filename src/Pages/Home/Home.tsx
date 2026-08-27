@@ -8,11 +8,11 @@ import styles from "./Home.module.css";
 export default function Home() {
   const lead = portfolioProjects.find((project) => project.id === "link-emr") ?? portfolioProjects[0];
   const homepageProjectIds = [
+    "safe-deal",
     "opian-erp",
     "afa-text-to-speech",
     "geez-ir",
     "reporting-system",
-    "ethio-tech-repository",
   ];
   const projects = homepageProjectIds
     .map((id) => portfolioProjects.find((project) => project.id === id))
@@ -22,6 +22,7 @@ export default function Home() {
     <section className={styles.hero}>
       <div className={styles.heroCopy}>
         <p className={styles.available}><span /> Available for ambitious software work</p>
+        <p className={styles.method}>Observe <i /> Test <i /> Build <i /> Refine</p>
         <p className={styles.intro}>Hello, I am {resumeData.personal.fullName.split(" ")[0]}.</p>
         <h1>I build software for <em>real systems</em> and real people.</h1>
         <p className={styles.summary}>{resumeData.personal.careerObjective}</p>
@@ -46,7 +47,15 @@ export default function Home() {
     <section className={styles.section}>
       <SectionHeader number="01" label="Selected work" title="Engineering shaped by context, constraints, and outcomes." link="/projects" />
       <article className={styles.feature}>
-        <div className={styles.featureVisual}><span>LINK</span><small>Healthcare operations / Ethiopia</small></div>
+        <div className={styles.featureVisual}>
+          <p className={styles.mapLabel}>Patient journey / one operational record</p>
+          <div className={styles.systemMap}>
+            {["Reception", "Triage", "Doctor", "Diagnostics", "Pharmacy"].map((step, index) => (
+              <div key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong></div>
+            ))}
+          </div>
+          <small>Facility-scoped / role-aware / low-bandwidth</small>
+        </div>
         <div className={styles.featureCopy}>
           <p className={styles.overline}>Featured case study</p><h3>{lead.title}</h3><p>{lead.description}</p>
           <ul>{lead.features.slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul>

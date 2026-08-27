@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import logo from "./pics/logo.png";
 import Header from "./components/header/header";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
@@ -22,8 +21,8 @@ function App() {
 
   return (
     <>
-      {!isCvRoute && <Header logo={logo} />}
-      <Suspense fallback={null}>
+      {!isCvRoute && <Header />}
+      <Suspense fallback={<div className="routeLoading">Loading field notes...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
