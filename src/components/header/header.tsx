@@ -6,11 +6,8 @@ import resumeData from "../../data/resume-data";
 import headerStyle from "./headerStyle.module.css";
 
 const navigation = [
-  { label: "Home", to: "/" },
   { label: "Projects", to: "/projects" },
-  { label: "Qualifications", to: "/qualification" },
   { label: "Resume", to: "/cvwrapper" },
-  { label: "TTS App", to: "/text_to_speech" },
 ];
 
 function Header() {
@@ -21,10 +18,7 @@ function Header() {
       <div className={headerStyle.headerInner}>
         <Link to="/" className={headerStyle.brand} onClick={() => setMenuOpen(false)}>
           <img src="/relentless.svg" alt="" className={headerStyle.logo} />
-          <div>
-            <p className={headerStyle.name}>{resumeData.personal.fullName}</p>
-            <p className={headerStyle.role}>{resumeData.personal.tagline}</p>
-          </div>
+          <p className={headerStyle.name}>{resumeData.personal.fullName}</p>
         </Link>
 
         <button

@@ -1,102 +1,155 @@
 import { Link } from "react-router-dom";
-import { FiArrowUpRight, FiGithub, FiMapPin } from "react-icons/fi";
+import { FiArrowUpRight, FiMail } from "react-icons/fi";
 import portrait from "../../pics/kidanekal.png";
 import resumeData from "../../data/resume-data";
-import { portfolioCertifications, portfolioProjects, totalYearsExperience } from "../../lib/portfolio";
+import { portfolioProjects, type PortfolioProject } from "../../lib/portfolio";
 import styles from "./Home.module.css";
 
+const flagshipIds = ["link-emr", "safe-deal", "geez-ir"];
+
+const projectLabels: Record<string, string> = {
+  "link-emr": "Clinical systems",
+  "safe-deal": "Transaction systems",
+  "geez-ir": "Information retrieval",
+};
+
 export default function Home() {
-  const lead = portfolioProjects.find((project) => project.id === "safe-deal") ?? portfolioProjects[0];
-  const homepageProjectIds = [
-    "opian-erp",
-    "afa-text-to-speech",
-    "link-emr",
-    "geez-ir",
-    "graphics-simulator",
-  ];
-  const projects = homepageProjectIds
+  const flagshipProjects = flagshipIds
     .map((id) => portfolioProjects.find((project) => project.id === id))
-    .filter((project): project is NonNullable<typeof project> => Boolean(project));
+    .filter((project): project is PortfolioProject => Boolean(project));
+  const securityProject = portfolioProjects.find((project) => project.id === "whitehat");
+  const currentRole = resumeData.experience.find((entry) => entry.current) ?? resumeData.experience[0];
+  const education = resumeData.education[0];
 
-  return <main className={styles.page}>
-    <section className={styles.hero}>
-      <div className={styles.heroCopy}>
-        <p className={styles.available}><span /> Available for software engineering opportunities</p>
-        <p className={styles.method}>Product <i /> Frontend <i /> Backend <i /> Delivery</p>
-        <p className={styles.intro}>Hello, I am {resumeData.personal.fullName.split(" ")[0]}.</p>
-        <h1>I build full-stack products from <em>interface</em> to infrastructure.</h1>
-        <p className={styles.summary}>{resumeData.personal.careerObjective}</p>
-        <div className={styles.actions}>
-          <Link className={styles.primary} to={`/projects/${lead.slug}`}>View featured work <FiArrowUpRight /></Link>
-          <a className={styles.textLink} href={resumeData.personal.githubUrl} target="_blank" rel="noreferrer"><FiGithub /> GitHub</a>
-        </div>
-      </div>
-      <aside className={styles.portraitPanel}>
-        <div className={styles.portrait}><img src={portrait} alt={resumeData.personal.fullName} /><span>01 / PROFILE</span></div>
-        <p><FiMapPin /> {resumeData.personal.location}</p>
-      </aside>
-    </section>
-
-    <section className={styles.stats} aria-label="Portfolio summary">
-      <div><strong>{Math.max(totalYearsExperience, 1)}+</strong><span>Years building</span></div>
-      <div><strong>{resumeData.projects.length}</strong><span>Projects shipped</span></div>
-      <div><strong>{resumeData.certifications.length}</strong><span>Credentials</span></div>
-      <blockquote>{resumeData.personal.workPhilosophy}</blockquote>
-    </section>
-
-    <section className={styles.section}>
-      <SectionHeader number="01" label="Selected work" title="Engineering shaped by context, constraints, and outcomes." link="/projects" />
-      <article className={styles.feature}>
-        <div className={styles.featureVisual}>
-          <p className={styles.mapLabel}>Architecture / connected product layers</p>
-          <div className={styles.systemMap}>
-            {lead.technologies.slice(0, 5).map((step, index) => (
-              <div key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong></div>
-            ))}
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
+          <div className={styles.identity}>
+            <p className={styles.eyebrow}>Software engineer / {resumeData.personal.location}</p>
+            <h1>
+              <span>Kidanekal</span>
+              <span>Melkam Alem</span>
+            </h1>
+            <p className={styles.scope}>
+              Product, frontend, backend, desktop, data, and delivery.
+            </p>
+            <div className={styles.actions}>
+              <Link className={styles.primaryAction} to="/projects">
+                Selected work <FiArrowUpRight />
+              </Link>
+              <a className={styles.secondaryAction} href={`mailto:${resumeData.personal.email}`}>
+                <FiMail /> Email
+              </a>
+            </div>
           </div>
-          <small>Interface / services / data / integrations / operations</small>
+
+          <div className={styles.fidel} aria-hidden="true">ገ</div>
+
+          <dl className={styles.capabilities}>
+            <div><dt>Current</dt><dd>{currentRole.position} at {currentRole.company}</dd></div>
+            <div><dt>Core stack</dt><dd>{resumeData.skills.languages.slice(0, 4).join(" / ")}</dd></div>
+            <div><dt>Work</dt><dd>Products / Platforms / Systems</dd></div>
+          </dl>
         </div>
-        <div className={styles.featureCopy}>
-          <p className={styles.overline}>Featured case study</p><h3>{lead.title}</h3><p>{lead.description}</p>
-          <ul>{lead.features.slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul>
-          <div className={styles.tags}>{lead.technologies.slice(0, 5).map((item) => <span key={item}>{item}</span>)}</div>
-          <Link to={`/projects/${lead.slug}`}>Explore the system <FiArrowUpRight /></Link>
+      </section>
+
+      <section className={styles.projectsSection} aria-labelledby="flagship-title">
+        <div className={styles.sectionHeading}>
+          <div>
+            <p className={styles.eyebrow}>Flagship projects</p>
+            <h2 id="flagship-title">Three different constraints.</h2>
+          </div>
+          <Link to="/projects">All projects <FiArrowUpRight /></Link>
         </div>
-      </article>
-      <div className={styles.projectList}>{projects.map((project, index) =>
-        <Link key={project.id} to={`/projects/${project.slug}`} className={styles.projectRow}>
-          <small>{String(index + 2).padStart(2, "0")}</small>
-          <div className={styles.thumb}>{project.image ? <img src={project.image} alt="" /> : project.title.slice(0, 2)}</div>
-          <div><h3>{project.title}</h3><p>{project.description}</p></div>
-          <span>{project.technologies.slice(0, 2).join(" / ")}</span><FiArrowUpRight />
-        </Link>)}</div>
-    </section>
 
-    <section className={`${styles.section} ${styles.experience}`}>
-      <SectionHeader number="02" label="Experience" title="Full-stack range, with a backend and systems mindset." />
-      <div className={styles.aboutGrid}>
-        <div className={styles.timeline}>{resumeData.experience.map((entry) => <article key={entry.company}>
-          <small>{entry.startDate} - {entry.current ? "Present" : entry.endDate}</small>
-          <div><h3>{entry.position}</h3><b>{entry.company} / {entry.location}</b><p>{entry.responsibilities[0]}</p></div>
-        </article>)}</div>
-        <aside className={styles.toolkit}><p className={styles.overline}>Core toolkit</p><h3>{resumeData.skills.languages.join(" / ")}</h3>
-          <dl><div><dt>Frameworks</dt><dd>{resumeData.skills.frameworks.join(", ")}</dd></div><div><dt>Databases</dt><dd>{resumeData.skills.databases.join(", ")}</dd></div><div><dt>Focus</dt><dd>{resumeData.skills.concepts.join(", ")}</dd></div></dl>
-        </aside>
-      </div>
-    </section>
+        <div className={styles.projectGrid}>
+          {flagshipProjects.map((project) => (
+            <FlagshipProject key={project.id} project={project} />
+          ))}
+        </div>
+      </section>
 
-    <section className={styles.section}>
-      <SectionHeader number="03" label="Foundation" title="Education and continuous learning." link="/qualification" />
-      <div className={styles.credentials}>
-        <article className={styles.education}><small>{resumeData.education[0].endDate}</small><h3>{resumeData.education[0].degree}</h3><p>{resumeData.education[0].institution}</p><b>GPA {resumeData.education[0].gpa} / {resumeData.education[0].honors}</b></article>
-        {portfolioCertifications.map((cert) => <article key={cert.id} className={styles.cert}>{cert.image && <img src={cert.image} alt="" />}<div><small>{cert.issueDate}</small><h3>{cert.title}</h3><span>{cert.issuer}</span></div></article>)}
-      </div>
-    </section>
+      {securityProject && (
+        <section className={styles.trustSection} aria-labelledby="trust-title">
+          <div className={styles.trustMark} aria-hidden="true">DISCLOSURE</div>
+          <div className={styles.trustCopy}>
+            <p className={styles.eyebrow}>Security practice</p>
+            <h2 id="trust-title">Responsible vulnerability disclosure</h2>
+            <p>{securityProject.description}</p>
+          </div>
+          <ul>
+            {securityProject.features.slice(0, 3).map((feature) => <li key={feature}>{feature}</li>)}
+          </ul>
+          <Link to={`/projects/${securityProject.slug}`} aria-label={`Read ${securityProject.title}`}>
+            Read disclosure <FiArrowUpRight />
+          </Link>
+        </section>
+      )}
 
-    <section className={styles.contact}><p>Need a developer who can work across the stack?</p><h2>Let&apos;s discuss the <em>work.</em></h2><a href={`mailto:${resumeData.personal.email}`}>{resumeData.personal.email} <FiArrowUpRight /></a></section>
-  </main>;
+      <section className={styles.aboutSection} aria-labelledby="about-title">
+        <figure className={styles.portrait}>
+          <img src={portrait} alt={resumeData.personal.fullName} />
+          <figcaption>{resumeData.personal.location}</figcaption>
+        </figure>
+        <div className={styles.aboutCopy}>
+          <p className={styles.eyebrow}>About</p>
+          <h2 id="about-title">{currentRole.position} at {currentRole.company}.</h2>
+          <p>
+            {education.degree} graduate from {education.institution}, GPA {education.gpa}, {education.honors}.
+            Current work spans modular clinical software, transaction systems, desktop tools,
+            ERP foundations, and applied information retrieval.
+          </p>
+          <Link to="/cvwrapper">View CV <FiArrowUpRight /></Link>
+        </div>
+      </section>
+
+      <section className={styles.contactSection} aria-labelledby="contact-title">
+        <p className={styles.eyebrow}>Contact</p>
+        <h2 id="contact-title">{resumeData.personal.email}</h2>
+        <a href={`mailto:${resumeData.personal.email}`}>
+          Send email <FiArrowUpRight />
+        </a>
+      </section>
+    </main>
+  );
 }
 
-function SectionHeader({ number, label, title, link }: { number: string; label: string; title: string; link?: string }) {
-  return <header className={styles.sectionHeader}><div><span>{number}</span><p>{label}</p></div><h2>{title}</h2>{link && <Link to={link}>View all <FiArrowUpRight /></Link>}</header>;
+function FlagshipProject({ project }: { project: PortfolioProject }) {
+  return (
+    <article className={styles.projectCard} data-project={project.id}>
+      <ProjectVisual project={project} />
+      <div className={styles.projectMeta}>
+        <span>{projectLabels[project.id] ?? "Software system"}</span>
+        <span>{project.technologies.slice(0, 3).join(" / ")}</span>
+      </div>
+      <h3>{project.title}</h3>
+      <p className={styles.problem}>{project.story?.problem ?? project.description}</p>
+      <p className={styles.built}>{project.description}</p>
+      <Link to={`/projects/${project.slug}`} aria-label={`View ${project.title}`}>
+        Case study <FiArrowUpRight />
+      </Link>
+    </article>
+  );
+}
+
+function ProjectVisual({ project }: { project: PortfolioProject }) {
+  if (project.id === "geez-ir") {
+    return <div className={`${styles.projectVisual} ${styles.geezVisual}`} aria-hidden="true">ገ</div>;
+  }
+
+  if (project.id === "safe-deal") {
+    return (
+      <div className={`${styles.projectVisual} ${styles.ledgerVisual}`} aria-hidden="true">
+        <span>ETB</span><i /><span>PROOF</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${styles.projectVisual} ${styles.clinicalVisual}`} aria-hidden="true">
+      <span>VISIT</span>
+      <div><i>Vitals</i><i>Lab</i><i>Rx</i></div>
+    </div>
+  );
 }

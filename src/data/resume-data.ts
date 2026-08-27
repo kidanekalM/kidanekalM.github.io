@@ -205,7 +205,14 @@ export const resumeData: ResumeData = {
         "Indexed Ge'ez corpus",
         "Precision/Recall/F1 evaluation"
       ],
-      media: { images: ["GeezRetr.png"] }
+      media: { images: ["GeezRetr.png"] },
+      story: {
+        problem: "Ge'ez texts are difficult to search because general-purpose retrieval tools do not account for the language's script and morphology.",
+        constraint: "The work had to operate with a limited corpus and language resources while still producing measurable retrieval results.",
+        contribution: "Built the retrieval pipeline, a custom Ge'ez stemmer, corpus indexing, search behavior, and evaluation workflow.",
+        decision: "Use a dedicated information-retrieval pipeline and evaluate it directly with precision, recall, and F1 rather than relying on generic search behavior.",
+        outcome: "Delivered a working Ge'ez search system with a custom linguistic preprocessing path and measurable retrieval performance."
+      }
     },
 
     {

@@ -3,8 +3,8 @@
   top: 0;
   z-index: 100;
   backdrop-filter: blur(18px);
-  background: rgba(248,249,250,.92);
-  border-bottom: 1px solid var(--line);
+  background: rgba(20, 22, 31, 0.94);
+  border-bottom: 1px solid rgba(237, 230, 214, 0.12);
 }
 
 .headerInner {
@@ -28,28 +28,22 @@
   width: 48px;
   height: 48px;
   flex: 0 0 auto;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(35%) saturate(836%) hue-rotate(358deg) brightness(89%) contrast(86%);
 }
 
 .name {
   margin: 0;
-  color: var(--ink);
+  color: #ede6d6;
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.role {
-  margin: 0.15rem 0 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-
 .menuButton {
   display: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--ink);
+  border: 1px solid rgba(237, 230, 214, 0.14);
+  background: #1c1f2e;
+  color: #ede6d6;
   width: 42px;
   height: 42px;
   border-radius: 6px;
@@ -65,7 +59,8 @@
 .contactLink {
   padding: 0.55rem 0.9rem;
   border-radius: 6px;
-  color: var(--muted);
+  color: #9a97a8;
+  font-family: var(--font-mono);
   font-size: 0.95rem;
   font-weight: 600;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
@@ -74,17 +69,18 @@
 .navLink:hover,
 .contactLink:hover,
 .active {
-  color: var(--ink);
-  background: #121f2609;
+  color: #c9974b;
+  background: rgba(201, 151, 75, 0.08);
 }
 
 .contactLink {
-  background: var(--ink);
-  color: var(--paper);
+  background: #c9974b;
+  color: #14161f;
 }
 
 .contactLink:hover {
-  color: var(--paper);
+  color: #14161f;
+  background: #ddb166;
   transform: translateY(-1px);
 }
 
@@ -107,7 +103,7 @@
     gap: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
-    background: var(--paper);
+    background: #1c1f2e;
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
   }
 
@@ -120,7 +116,4 @@
     text-align: center;
   }
 
-  .role {
-    display: none;
-  }
 }

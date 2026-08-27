@@ -1,4 +1,5 @@
-:root{--paper:#f8f9fa;--ink:#111318;--muted:#626873;--line:#d9dde3;--blue:#155eef;--signal:#f04438;--ring:#155eef66;--font-display:"Aptos Display","Trebuchet MS",sans-serif;--font-sans:"Aptos","Trebuchet MS",sans-serif}
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;600&display=swap");
+:root{--paper:#f8f9fa;--ink:#111318;--muted:#626873;--line:#d9dde3;--blue:#155eef;--signal:#f04438;--ring:#c9974b88;--font-display:"Fraunces","Iowan Old Style",Georgia,serif;--font-sans:"IBM Plex Sans","Segoe UI",sans-serif;--font-mono:"IBM Plex Mono","Cascadia Code",monospace}
 *{ box-sizing: border-box; }
 html, body, #root{ height: 100%; }
 html{ scroll-behavior: smooth; }
