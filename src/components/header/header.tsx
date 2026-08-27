@@ -20,6 +20,7 @@ function Header() {
     <header className={headerStyle.header}>
       <div className={headerStyle.headerInner}>
         <Link to="/" className={headerStyle.brand} onClick={() => setMenuOpen(false)}>
+          <img src="/relentless.svg" alt="" className={headerStyle.logo} />
           <div>
             <p className={headerStyle.name}>{resumeData.personal.fullName}</p>
             <p className={headerStyle.role}>{resumeData.personal.tagline}</p>

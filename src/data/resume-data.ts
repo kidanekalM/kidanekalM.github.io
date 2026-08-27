@@ -109,11 +109,11 @@ export const resumeData: ResumeData = {
     portfolioUrl: "https://kidanekal.vercel.app",
     githubUrl: "https://github.com/kidanekalm",
     linkedinUrl: "https://linkedin.com/in/kidanekalm",
-    tagline: "Software Developer | Healthcare, AI & Civic Tech",
+    tagline: "Full-Stack Software Developer | Products, Platforms & Systems",
     careerObjective:
-      "To build ethical, resilient, and context-aware software systems that solve real problems in African healthcare, governance, and finance, while growing as a globally competent developer-researcher.",
+      "I build reliable, maintainable software across web platforms, backend systems, desktop tools, developer infrastructure, and applied computing, turning real constraints into products people can use.",
     workPhilosophy:
-      "Code is a tool for dignity — not just efficiency."
+      "Product, frontend, backend, data, testing, and delivery."
   },
 
   education: [
@@ -147,6 +147,7 @@ export const resumeData: ResumeData = {
       current: true,
       responsibilities: [
         "Developing Link — a scalable multi-facility EMR system for Ethiopian healthcare",
+        "My primary Link contribution is its modular clinical platform: one shared patient-visit context with interchangeable tools and facility-level controls for enablement, role visibility, and workflow placement",
         "Built a Pharmaceutical Manufacturer Information System aligned with Ethiopian FDA regulations",
         "Collaborating with clinicians and product teams using agile workflows",
         "Contributed to a full-stack healthcare operations platform spanning public onboarding, clinic administration, reception, triage, doctor workflows, cashier, lab, imaging, pharmacy, inpatient, logistics, and super-admin controls",
@@ -455,9 +456,13 @@ export const resumeData: ResumeData = {
       id: "link-emr",
       title: "Link — Multi-Facility EMR",
       description:
-        "Real-world healthcare operations platform for Ethiopian clinics, hospitals, and labs, built to support interoperable care delivery across many roles, facilities, and service lines.",
+        "A modular clinical operations platform where vitals, consultation, lab, imaging, pharmacy, and other tools plug into one shared patient-visit context.",
       technologies: [".NET", "ASP.NET Core", "React", "Vite", "SQL Server", "Healthcare IT"],
       features: [
+        "Shared patient-visit context used by interchangeable clinical modules",
+        "Facility-controlled tool enablement, role visibility, and workflow placement",
+        "Vitals, consultation, lab, imaging, and pharmacy tools built around the same visit model",
+        "Planned clinician-controlled tool suggestions informed by usage patterns",
         "Interoperable patient records",
         "Low-bandwidth optimization",
         "Role-based workflows spanning reception, triage, doctor, cashier, lab, imaging, pharmacy, inpatient, logistics, and super-admin operations",
@@ -466,11 +471,11 @@ export const resumeData: ResumeData = {
         "Queue, reporting, and workflow contract stabilization across frontend and backend subsystems"
       ],
       story: {
-        problem: "Healthcare facilities need one operational record that follows a patient across reception, clinical care, diagnostics, payment, pharmacy, and inpatient services.",
-        constraint: "The system spans many roles and facilities, must remain usable in low-bandwidth environments, and cannot tolerate drift between queues, seed data, API contracts, and UI workflow names.",
-        contribution: "Worked across the React frontend and layered ASP.NET Core backend, building role-based workflows and stabilizing queue, reporting, seed, and endpoint contracts.",
-        decision: "Model explicit facility-scoped domains and layered application boundaries, then use role queues and end-to-end workflow tests to keep subsystem contracts aligned.",
-        outcome: "Helped move Link from broad feature construction into cross-system stabilization across a real multi-domain healthcare operations platform."
+        problem: "Clinical software becomes difficult to adapt when every workflow is hard-coded into one application, even though every tool operates on the same patient visit.",
+        constraint: "Facilities need different clinical tools, role access, and screen placement while preserving one visit record, low-bandwidth operation, and consistent contracts across the frontend and backend.",
+        contribution: "My primary contribution was shaping and implementing Link as a modular clinical platform: one shared visit context with interchangeable tools for vitals, consultation, lab, imaging, pharmacy, and future workflows, plus facility-level controls for enablement, visibility, and placement.",
+        decision: "Treat each clinical capability as a module attached to a shared visit context, keep facility configuration outside module code, and reserve usage-based suggestions for a clinician-controlled recommendation layer.",
+        outcome: "Established a platform direction where facilities can compose clinical workflows without rebuilding the application, while retaining Link's role-based queues, reporting, testing, and multi-facility operational scope."
       }
     },
 

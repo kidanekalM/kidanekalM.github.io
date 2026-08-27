@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div>
           <p className={styles.heading}>{resumeData.personal.fullName}</p>
-          <p className={styles.tagline}>Observe the system. Find the constraint. Build what works.</p>
+          <p className={styles.tagline}>Full-stack product engineering across web, desktop, backend, and infrastructure.</p>
         </div>
 
         <div className={styles.links}>

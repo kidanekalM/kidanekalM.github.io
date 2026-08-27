@@ -20,8 +20,14 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0;
+  gap: 0.8rem;
   min-width: 0;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
 }
 
 .name {

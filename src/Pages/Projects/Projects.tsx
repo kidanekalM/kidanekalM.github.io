@@ -76,8 +76,8 @@ export default function Projects() {
           <section className={styles.caseStudy} aria-labelledby="case-study-title">
             <header className={styles.caseStudyHeader}>
               <p className={styles.eyebrow}>Inside the build</p>
-              <h2 id="case-study-title">Problem first. Technology second.</h2>
-              <p>Observe / test / build / refine</p>
+              <h2 id="case-study-title">Problem, constraints, decisions, and outcome.</h2>
+              <p>What changed and why</p>
             </header>
             <div className={styles.storyGrid}>
               <article><span>01</span><p>Problem</p><h3>{selectedProject.story.problem}</h3></article>
@@ -122,7 +122,7 @@ export default function Projects() {
     <main className={styles.page}>
       <section className={styles.listHero}>
         <p className={styles.eyebrow}>Projects</p>
-        <h1>Selected builds across healthcare, civic tech, systems, and frontend work.</h1>
+        <h1>Selected builds across products, platforms, tools, simulations, and applied systems.</h1>
         <p className={styles.description}>
           Every project card below is generated from the same portfolio JSON that drives the
           broader site, with media resolved against the repo assets.

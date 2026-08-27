@@ -319,7 +319,7 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
                 </p>
                 {featuredHealthcareProject.features && (
                   <ul>
-                    {featuredHealthcareProject.features.map((feature, idx) => (
+                    {featuredHealthcareProject.features.slice(0, 6).map((feature, idx) => (
                       <li key={`featured-${idx}`}>{feature}</li>
                     ))}
                   </ul>

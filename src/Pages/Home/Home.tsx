@@ -6,13 +6,13 @@ import { portfolioCertifications, portfolioProjects, totalYearsExperience } from
 import styles from "./Home.module.css";
 
 export default function Home() {
-  const lead = portfolioProjects.find((project) => project.id === "link-emr") ?? portfolioProjects[0];
+  const lead = portfolioProjects.find((project) => project.id === "safe-deal") ?? portfolioProjects[0];
   const homepageProjectIds = [
-    "safe-deal",
     "opian-erp",
     "afa-text-to-speech",
+    "link-emr",
     "geez-ir",
-    "reporting-system",
+    "graphics-simulator",
   ];
   const projects = homepageProjectIds
     .map((id) => portfolioProjects.find((project) => project.id === id))
@@ -21,10 +21,10 @@ export default function Home() {
   return <main className={styles.page}>
     <section className={styles.hero}>
       <div className={styles.heroCopy}>
-        <p className={styles.available}><span /> Available for ambitious software work</p>
-        <p className={styles.method}>Observe <i /> Test <i /> Build <i /> Refine</p>
+        <p className={styles.available}><span /> Available for software engineering opportunities</p>
+        <p className={styles.method}>Product <i /> Frontend <i /> Backend <i /> Delivery</p>
         <p className={styles.intro}>Hello, I am {resumeData.personal.fullName.split(" ")[0]}.</p>
-        <h1>I build software for <em>real systems</em> and real people.</h1>
+        <h1>I build full-stack products from <em>interface</em> to infrastructure.</h1>
         <p className={styles.summary}>{resumeData.personal.careerObjective}</p>
         <div className={styles.actions}>
           <Link className={styles.primary} to={`/projects/${lead.slug}`}>View featured work <FiArrowUpRight /></Link>
@@ -48,13 +48,13 @@ export default function Home() {
       <SectionHeader number="01" label="Selected work" title="Engineering shaped by context, constraints, and outcomes." link="/projects" />
       <article className={styles.feature}>
         <div className={styles.featureVisual}>
-          <p className={styles.mapLabel}>Patient journey / one operational record</p>
+          <p className={styles.mapLabel}>Architecture / connected product layers</p>
           <div className={styles.systemMap}>
-            {["Reception", "Triage", "Doctor", "Diagnostics", "Pharmacy"].map((step, index) => (
+            {lead.technologies.slice(0, 5).map((step, index) => (
               <div key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong></div>
             ))}
           </div>
-          <small>Facility-scoped / role-aware / low-bandwidth</small>
+          <small>Interface / services / data / integrations / operations</small>
         </div>
         <div className={styles.featureCopy}>
           <p className={styles.overline}>Featured case study</p><h3>{lead.title}</h3><p>{lead.description}</p>
@@ -93,7 +93,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section className={styles.contact}><p>Have a difficult problem worth solving?</p><h2>Let&apos;s build something <em>useful.</em></h2><a href={`mailto:${resumeData.personal.email}`}>{resumeData.personal.email} <FiArrowUpRight /></a></section>
+    <section className={styles.contact}><p>Need a developer who can work across the stack?</p><h2>Let&apos;s discuss the <em>work.</em></h2><a href={`mailto:${resumeData.personal.email}`}>{resumeData.personal.email} <FiArrowUpRight /></a></section>
   </main>;
 }
 
