@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { featuredProjects, findProjectBySlug, portfolioProjects } from "../../lib/portfolio";
+import { findProjectBySlug, portfolioProjects } from "../../lib/portfolio";
 import styles from "./styles.module.css";
 
 export default function Projects() {
@@ -122,10 +122,9 @@ export default function Projects() {
     <main className={styles.page}>
       <section className={styles.listHero}>
         <p className={styles.eyebrow}>Projects</p>
-        <h1>Selected builds across products, platforms, tools, simulations, and applied systems.</h1>
+        <h1>Products, platforms, tools, simulations, and applied systems.</h1>
         <p className={styles.description}>
-          Every project card below is generated from the same portfolio JSON that drives the
-          broader site, with media resolved against the repo assets.
+          Case studies and working prototypes across full-stack product engineering.
         </p>
       </section>
 
@@ -153,20 +152,6 @@ export default function Projects() {
         ))}
       </section>
 
-      <section className={styles.moreSection}>
-        <div className={styles.sectionHeader}>
-          <p className={styles.eyebrow}>Featured</p>
-          <h2>A few high-signal projects worth opening first.</h2>
-        </div>
-        <div className={styles.compactList}>
-          {featuredProjects.map((project) => (
-            <Link key={project.id} to={`/projects/${project.slug}`} className={styles.compactItem}>
-              <span>{project.title}</span>
-              <small>{project.technologies.slice(0, 2).join(" · ")}</small>
-            </Link>
-          ))}
-        </div>
-      </section>
     </main>
   );
 }

@@ -178,6 +178,7 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
       }
 
       const pages = Array.from(exportHost.children) as HTMLElement[];
+      let renderedSidebar: HTMLCanvasElement | null = null;
 
       for (const page of pages) {
         const canvas = await html2canvas(page, {
@@ -187,6 +188,27 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
           windowWidth: pageWidthPx,
           windowHeight: pageHeightPx,
         });
+
+        if (!renderedSidebar) {
+          renderedSidebar = document.createElement("canvas");
+          renderedSidebar.width = sidebarWidthPx * 2;
+          renderedSidebar.height = canvas.height;
+          renderedSidebar
+            .getContext("2d")
+            ?.drawImage(
+              canvas,
+              0,
+              0,
+              renderedSidebar.width,
+              renderedSidebar.height,
+              0,
+              0,
+              renderedSidebar.width,
+              renderedSidebar.height
+            );
+        } else {
+          canvas.getContext("2d")?.drawImage(renderedSidebar, 0, 0);
+        }
 
         const pageImage = canvas.toDataURL("image/png");
 

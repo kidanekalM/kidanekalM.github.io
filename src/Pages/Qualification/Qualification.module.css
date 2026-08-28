@@ -1,1 +1,59 @@
-.page{width:min(1240px,calc(100% - 3rem));margin:auto;padding:4rem 0 6rem}.hero{padding:5rem;background:var(--ink);color:white}.eyebrow{margin:0 0 1rem;color:#8eb1ff;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1,.educationCard h2,.detailCopy h1{margin:0;font-family:var(--font-display);font-weight:800;letter-spacing:-.05em;line-height:.95}.hero h1{max-width:900px;font-size:clamp(3.4rem,7vw,7rem)}.description{max-width:620px;margin:1.5rem 0 0;color:#ffffffaa;line-height:1.75}.educationCard{display:grid;grid-template-columns:180px minmax(0,1fr);gap:2rem;margin-top:4rem;padding:2.5rem 0;border-block:1px solid var(--line)}.educationCard h2{font-size:clamp(2rem,4vw,4rem)}.educationCard>p{grid-column:2;margin:.2rem 0;color:var(--muted)}.educationCard>.eyebrow{grid-column:1;grid-row:1/6;color:var(--blue)}.courseList{grid-column:2;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.courseList span{padding:.45rem .7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted);font-size:.78rem}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:4rem;border-top:1px solid var(--line);border-left:1px solid var(--line)}.card{min-height:300px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s}.card:hover{background:#eef3ff}.cardImage{width:72px;height:72px;object-fit:cover;filter:grayscale(1)}.card h3{margin:0;font:800 1.35rem var(--font-display)}.card p,.card small{margin:.35rem 0 0;color:var(--muted)}.detailCard{display:grid;grid-template-columns:minmax(260px,420px) 1fr;min-height:620px;background:var(--ink);color:white}.detailImage{width:100%;height:100%;object-fit:cover}.detailCopy{padding:clamp(2rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center}.detailCopy h1{font-size:clamp(3rem,6vw,6rem)}.detailCopy p{color:#ffffffaa}.backLink{align-self:flex-start;margin-top:2rem;padding-bottom:.35rem;border-bottom:1px solid currentColor;font-weight:800}@media(max-width:900px){.hero{padding:3rem 2rem}.grid{grid-template-columns:repeat(2,1fr)}.detailCard{grid-template-columns:1fr}.detailImage{max-height:420px}.educationCard{grid-template-columns:1fr}.educationCard>.eyebrow,.educationCard>p,.courseList{grid-column:1}}@media(max-width:600px){.page{width:calc(100% - 1.2rem);padding-top:1.2rem}.hero{padding:2.2rem 1.3rem}.grid{grid-template-columns:1fr}.card{min-height:220px}.educationCard{margin-top:2.5rem}}
+.page {
+  --page-bg: #14161f;
+  --panel: #1c1f2e;
+  --gold: #c9974b;
+  --text: #ede6d6;
+  --muted: #9a97a8;
+  --line: rgba(237, 230, 214, 0.14);
+  min-height: 70vh;
+  padding: 5rem max(1.5rem, calc((100vw - 1180px) / 2)) 7rem;
+  background: radial-gradient(circle at 8% 4%, rgba(139, 58, 58, 0.13), transparent 24rem), var(--page-bg);
+  color: var(--text);
+}
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.4fr); gap: 4rem; padding: 4rem 0 5rem; border-bottom: 1px solid var(--line); }
+.hero > .eyebrow { grid-column: 1 / -1; margin-bottom: -2rem; }
+.hero h1 { grid-column: 1; }
+.eyebrow { margin: 0 0 1rem; color: var(--gold); font: 600 0.72rem/1.4 "IBM Plex Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; }
+.hero h1, .educationCard h2, .detailCopy h1 { margin: 0; font-family: "Fraunces", Georgia, serif; font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
+.hero h1 { max-width: 850px; font-size: clamp(3.2rem, 7vw, 6.8rem); }
+.description { align-self: end; max-width: 29rem; margin: 0 0 0.35rem; color: var(--muted); font-size: 1rem; line-height: 1.75; }
+.educationCard { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 0.8rem 2rem; padding: 4.5rem 0; border-bottom: 1px solid var(--line); }
+.educationCard > .eyebrow { grid-column: 1; grid-row: 1 / 7; }
+.educationCard h2, .educationCard > p:not(.eyebrow), .courseList { grid-column: 2; }
+.educationCard h2 { max-width: 870px; font-size: clamp(2.4rem, 5vw, 4.7rem); }
+.educationCard > p:not(.eyebrow) { margin: 0; color: var(--muted); }
+.courseList { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.2rem; }
+.courseList span { padding: 0.5rem 0.7rem; border: 1px solid var(--line); color: var(--text); font: 500 0.74rem/1.2 "IBM Plex Mono", monospace; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-top: 4.5rem; }
+.card { position: relative; min-height: 320px; padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); margin: -1px 0 0 -1px; color: var(--text); transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.card::after { content: "View"; position: absolute; right: 1.6rem; top: 1.7rem; color: var(--gold); font: 500 0.7rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; }
+.card:hover { z-index: 1; transform: translateY(-4px); border-color: rgba(201, 151, 75, 0.7); background: var(--panel); }
+.cardImage { width: 78px; height: 78px; object-fit: cover; filter: grayscale(1) contrast(1.06); transition: filter 180ms ease; }
+.card:hover .cardImage { filter: grayscale(0) contrast(1); }
+.card h3 { margin: 0; font: 600 1.45rem/1.08 "Fraunces", Georgia, serif; }
+.card p, .card small { display: block; margin: 0.45rem 0 0; color: var(--muted); line-height: 1.5; }
+.card small { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; }
+.detailCard { display: grid; grid-template-columns: minmax(280px, 0.8fr) 1.2fr; min-height: 650px; border: 1px solid var(--line); background: var(--panel); }
+.detailImage { width: 100%; height: 100%; min-height: 650px; object-fit: cover; filter: saturate(0.75) contrast(1.04); }
+.detailCopy { padding: clamp(2rem, 7vw, 6rem); display: flex; flex-direction: column; justify-content: center; }
+.detailCopy h1 { font-size: clamp(3rem, 6vw, 6rem); }
+.detailCopy p:not(.eyebrow) { margin: 1rem 0 0; color: var(--muted); }
+.backLink { align-self: flex-start; margin-top: 3rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--gold); color: var(--gold); font-weight: 600; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .hero > .eyebrow, .hero h1 { grid-column: 1; }
+  .hero > .eyebrow { margin-bottom: -0.5rem; }
+  .description { align-self: auto; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .detailCard { grid-template-columns: 1fr; }
+  .detailImage { min-height: 0; max-height: 430px; }
+}
+@media (max-width: 600px) {
+  .page { padding: 2rem 1rem 5rem; }
+  .hero { padding: 2.4rem 0 3.5rem; }
+  .educationCard { grid-template-columns: 1fr; padding: 3.5rem 0; }
+  .educationCard > .eyebrow, .educationCard h2, .educationCard > p:not(.eyebrow), .courseList { grid-column: 1; grid-row: auto; }
+  .grid { grid-template-columns: 1fr; padding-top: 3.5rem; }
+  .card { min-height: 240px; }
+  .detailCopy { padding: 2.5rem 1.4rem; }
+}

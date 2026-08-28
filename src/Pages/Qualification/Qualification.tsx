@@ -38,10 +38,9 @@ export default function Qualification() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>Qualifications</p>
-        <h1>Education, certifications, and foundational training.</h1>
+        <h1>Computer science foundation and technical training.</h1>
         <p className={styles.description}>
-          Structured from the same resume JSON so the qualifications page stays aligned with the
-          portfolio and CV.
+          Formal education, focused certifications, and the technical areas behind the project work.
         </p>
       </section>
 

@@ -1,16 +1,17 @@
 import { useState } from "react";
 import Cv from "../Cv/Cv";
 import resumeData from "../../data/resume-data";
+import styles from "./CvWrapper.module.css";
 
 const CvWrapper = () => {
   const [cvData, setCvData] = useState(resumeData);
   const [userPrompt, setUserPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const [, setError] = useState("");
+  const [error, setError] = useState("");
 
   const handleCustomize = async () => {
     if (!userPrompt.trim()) {
-      alert("Please enter a customization prompt");
+      setError("Enter the role or changes you want to emphasize.");
       return;
     }
 
@@ -35,7 +36,7 @@ const CvWrapper = () => {
       setCvData(newCv);
     } catch (err) {
       console.error(err);
-      setError("Failed to customize CV. Try a simpler prompt.");
+      setError("Customization failed. Try a shorter, more specific prompt.");
     } finally {
       setLoading(false);
     }
@@ -44,41 +45,48 @@ const CvWrapper = () => {
   const handleReset = () => {
     setCvData(resumeData);
     setUserPrompt("");
+    setError("");
   };
 
-
   return (
-    <>
-      <div
-        className="cv-customizer"
-        style={{ padding: "10px", background: "#f3f4f6", display: "flex", gap: "10px", alignItems: "center" }}
-      >
-        <input
-          type="text"
-          placeholder="Enter custom CV prompt…"
-          value={userPrompt}
-          onChange={(e) => setUserPrompt(e.target.value)}
-          style={{ flex: 1, padding: "6px 10px", borderRadius: 4, border: "1px solid #ccc" }}
-        />
-        <button onClick={handleCustomize} style={{ padding: "6px 12px", backgroundColor: "#2563eb", color: "white", border: "none", borderRadius: 4 }}>
-          {loading ? "Generating…" : "Customize"}
-        </button>
-        <button onClick={handleReset} style={{ padding: "6px 12px", border: "1px solid #ccc", borderRadius: 4 }}>
-          Reset
-        </button>
-      </div>
+    <main className={styles.page}>
+      <header className={styles.intro}>
+        <div>
+          <p className={styles.eyebrow}>Resume</p>
+          <h1>Experience, projects, and technical work.</h1>
+        </div>
+        <p>
+          The print action below creates the prepared two-page PDF. Use the optional prompt to tailor emphasis before exporting.
+        </p>
+      </header>
 
+      <section className={styles.customizer} aria-label="Customize resume">
+        <label htmlFor="cv-prompt">Tailor this version</label>
+        <div className={styles.controls}>
+          <input
+            id="cv-prompt"
+            type="text"
+            placeholder="Example: emphasize backend and healthcare platform work"
+            value={userPrompt}
+            onChange={(event) => setUserPrompt(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") handleCustomize();
+            }}
+          />
+          <button className={styles.primary} onClick={handleCustomize} disabled={loading}>
+            {loading ? "Customizing..." : "Customize"}
+          </button>
+          <button className={styles.secondary} onClick={handleReset} disabled={loading}>
+            Reset
+          </button>
+        </div>
+        {error && <p className={styles.error} role="alert">{error}</p>}
+      </section>
 
-      <style>{`
-        @media print {
-          .cv-customizer {
-            display: none !important;
-          }
-        }
-      `}</style>
-
-      <Cv resume={cvData} />
-    </>
+      <section className={styles.document} aria-label="Resume preview">
+        <Cv resume={cvData} />
+      </section>
+    </main>
   );
 };
 
