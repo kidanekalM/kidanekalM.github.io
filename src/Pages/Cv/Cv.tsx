@@ -378,7 +378,7 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
         </section>
       </main>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* GENERAL LAYOUT */
         #cv-root {
           display: flex;
@@ -584,7 +584,7 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
             margin: 0;
           }
         }
-      `}</style>
+      ` }} />
     </>
   );
 };

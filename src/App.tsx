@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/Footer/Footer";
+import Seo from "./components/Seo/Seo";
 import "./App.css";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+      <Seo />
       {!isCvRoute && <Header />}
       <Suspense fallback={<div className="routeLoading">Loading field notes...</div>}>
         <Routes>
@@ -45,10 +47,21 @@ function App() {
           <Route path="/AdminHome/ManageProjects/EditProjects/:id" element={<EditProjects />} />
           <Route path="/cvwrapper" element={<CvWrapper />} />
           <Route path="/text_to_speech" element={<TextToSpeech />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       {!isCvRoute && <Footer />}
     </>
+  );
+}
+
+function NotFound() {
+  return (
+    <main className="notFoundPage">
+      <p>404 / Route not found</p>
+      <h1>This page does not exist.</h1>
+      <a href="/">Return home</a>
+    </main>
   );
 }
 

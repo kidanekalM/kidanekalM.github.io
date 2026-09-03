@@ -107,7 +107,7 @@ export const resumeData: ResumeData = {
     location: "Addis Ababa, Ethiopia",
     email: "akidanekal@gmail.com",
     phone: "+251 922 335 151",
-    portfolioUrl: "https://kidanekal.vercel.app",
+    portfolioUrl: "https://kidanekal.is-a.dev",
     githubUrl: "https://github.com/kidanekalm",
     linkedinUrl: "https://linkedin.com/in/kidanekalm",
     tagline: "Full-Stack Software Developer | Products, Platforms & Systems",

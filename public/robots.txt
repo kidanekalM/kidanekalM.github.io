@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /spa
+
+Sitemap: https://kidanekal.is-a.dev/sitemap.xml
