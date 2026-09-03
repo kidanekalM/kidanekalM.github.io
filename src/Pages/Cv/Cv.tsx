@@ -40,7 +40,9 @@ export interface ResumeData {
   projects: {
     id: string;
     title: string;
+    organization?: string;
     link?: string;
+    repositoryUrl?: string;
     description: string;
     technologies: string[];
     features?: string[];
@@ -334,7 +336,9 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
             <h3>Selected Projects</h3>
             {featuredHealthcareProject && (
               <div className="entry avoid-break project-entry featured-project">
-                <strong>Featured Healthcare Platform: {featuredHealthcareProject.title}</strong>
+                <strong>
+                  {featuredHealthcareProject.organization} · Featured Healthcare Platform: {featuredHealthcareProject.title}
+                </strong>
                 <p className="project-desc">{featuredHealthcareProject.description}</p>
                 <p className="project-tech">
                   {featuredHealthcareProject.technologies.join(" · ")}
@@ -353,6 +357,9 @@ const Cv: React.FC<CvProps> = ({ resume }) => {
                 <strong>{project.title}</strong>
                 {project.link && (
                   <span> — <a href={project.link}>{project.link}</a></span>
+                )}
+                {project.repositoryUrl && (
+                  <span> — <a href={project.repositoryUrl}>{project.repositoryUrl}</a></span>
                 )}
                 <p className="project-desc">{project.description}</p>
                 <p className="project-tech">

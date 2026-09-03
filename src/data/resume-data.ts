@@ -51,6 +51,7 @@ export interface WorkExperience {
 export interface Project {
   id: string;
   title: string;
+  organization?: string;
   description: string;
   link?: string;
   repositoryUrl?: string;
@@ -148,6 +149,8 @@ export const resumeData: ResumeData = {
       responsibilities: [
         "Developing Link — a scalable multi-facility EMR system for Ethiopian healthcare",
         "My primary Link contribution is its modular clinical platform: one shared patient-visit context with interchangeable tools and facility-level controls for enablement, role visibility, and workflow placement",
+        "Contributing across three Opian products: Link, OpianERP, and the Pharmaceutical Manufacturer Information System",
+        "Building OpianERP as a modular React and .NET business operations platform with feature-owned domains, typed API boundaries, and workflow automation",
         "Built a Pharmaceutical Manufacturer Information System aligned with Ethiopian FDA regulations",
         "Collaborating with clinicians and product teams using agile workflows",
         "Contributed to a full-stack healthcare operations platform spanning public onboarding, clinic administration, reception, triage, doctor workflows, cashier, lab, imaging, pharmacy, inpatient, logistics, and super-admin controls",
@@ -159,6 +162,10 @@ export const resumeData: ResumeData = {
         ".NET 6/8",
         "Entity Framework",
         "SQL Server",
+        "PostgreSQL",
+        "React",
+        "TypeScript",
+        "Vite",
         "Next.js",
         "REST APIs"
       ],
@@ -197,6 +204,7 @@ export const resumeData: ResumeData = {
       id: "geez-ir",
       title: "Geez Document Retrieval System",
       link: "https://geezsearch.streamlit.app",
+      repositoryUrl: "https://github.com/kidanekalM/IR_Project",
       description:
         "Dedicated Information Retrieval system for Ge'ez texts, featuring a custom stemmer and evaluated using precision, recall, and F1-score.",
       technologies: ["Python", "NLP", "Information Retrieval"],
@@ -232,7 +240,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "graphics-simulator",
-      link: "https://github.com/kidanekalM/Raster",
+      repositoryUrl: "https://github.com/kidanekalM/Raster",
       title: "Raster Graphics Simulator",
       description:
         "Sandbox environment for experimenting with raster graphics algorithms and rendering trade-offs.",
@@ -274,7 +282,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "cpu",
-      link: "https://github.com/kidanekalM/CPU_Scheduling_Algorithm_Visualizer",
+      repositoryUrl: "https://github.com/kidanekalM/CPU_Scheduling_Algorithm_Visualizer",
       title: "CPU Scheduling Algorithm Visualizer",
       description:
         "Interactive simulator for FCFS, SJF, and Round Robin scheduling algorithms.",
@@ -288,7 +296,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "producer-consumer",
-      link: "https://github.com/kidanekalM/Producer-and-Consumer",
+      repositoryUrl: "https://github.com/kidanekalM/Producer-and-Consumer",
       title: "Producer–Consumer Simulator",
       description:
         "Visual simulator of concurrency synchronization using a bounded buffer.",
@@ -302,7 +310,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "riddle",
-      link: "https://github.com/kidanekalM/riddle",
+      repositoryUrl: "https://github.com/kidanekalM/riddle",
       title: "River Crossing Riddle",
       description:
         "JavaScript implementation of a classic logic puzzle using state transitions.",
@@ -314,6 +322,7 @@ export const resumeData: ResumeData = {
     {
       id: "amharic-encryption",
       title: "Amharic Spoken Encryption Algorithm",
+      repositoryUrl: "https://github.com/kidanekalM/Yewef_Quanqua",
       description:
         "Python implementation of traditional Ethiopian oral encryption techniques.",
       technologies: ["Python", "Cryptography"],
@@ -335,7 +344,7 @@ export const resumeData: ResumeData = {
 
     {
       id: "css-gallery",
-      link: "https://github.com/kidanekalM/nature-css",
+      repositoryUrl: "https://github.com/kidanekalM/nature-css",
       title: "CSS Projects Gallery",
       description:
         "Collection of CSS experiments focused on layout, animation, and responsiveness.",
@@ -392,13 +401,16 @@ export const resumeData: ResumeData = {
     {
       id: "opian-erp",
       title: "Opian ERP",
-      link: "https://github.com/kidanekalM/opian-erp-fe",
+      organization: "Opian Technologies",
       description:
-        "A modular, agent-driven ERP frontend designed for maintainable business operations across independently owned feature domains.",
-      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query"],
+        "A modular multi-tenant ERP platform with a React frontend and .NET backend for identity, HRM, workflow-driven operations, auditing, and tenant administration.",
+      technologies: ["React", "TypeScript", "Vite", ".NET 9", "EF Core", "PostgreSQL", "Tailwind CSS", "TanStack Query"],
       features: [
         "Feature-owned modules with shared application shell boundaries",
         "Typed server-state and API client architecture",
+        "Role, page, and action permissions with tenant-bound sessions",
+        "Employee records, timesheets, leave requests, and approval workflows",
+        "Versioned workflow engine, audit metadata, and SaaS tenant foundations",
         "Automated formatting, linting, build, test, and pull-request quality checks"
       ],
       story: {
@@ -448,7 +460,7 @@ export const resumeData: ResumeData = {
     {
       id: "efficiency-metric",
       title: "Efficiency Metric Calculator",
-      link: "https://github.com/kidanekalM/Efficiency_Metric_Calculator",
+      repositoryUrl: "https://github.com/kidanekalM/Efficiency_Metric_Calculator",
       description:
         "An interactive implementation of a custom metric for comparing physical value by weight, cost, and volume.",
       technologies: ["JavaScript", "HTML", "CSS", "Applied Mathematics"],
@@ -462,6 +474,7 @@ export const resumeData: ResumeData = {
     {
       id: "link-emr",
       title: "Link — Multi-Facility EMR",
+      organization: "Opian Technologies",
       description:
         "A modular clinical operations platform where vitals, consultation, lab, imaging, pharmacy, and other tools plug into one shared patient-visit context.",
       technologies: [".NET", "ASP.NET Core", "React", "Vite", "SQL Server", "Healthcare IT"],
@@ -489,12 +502,42 @@ export const resumeData: ResumeData = {
     {
       id: "pharma",
       title: "Pharmaceutical Manufacturer Information System",
+      organization: "Opian Technologies",
+      repositoryUrl: "https://github.com/kidanekalM/ManufacturerSys",
       description:
         "Regulatory compliance platform for Ethiopian pharmaceutical manufacturers.",
       technologies: [".NET", "Next.js"],
       features: [
         "Drug batch tracking",
         "FDA-aligned workflows"
+      ]
+    },
+
+    {
+      id: "wake-cipher",
+      title: "WAKE Cipher Experiment",
+      repositoryUrl: "https://github.com/kidanekalM/WAKE",
+      description:
+        "Python study of word auto-key encryption, including key expansion, substitution-box generation, and reversible text transformation.",
+      technologies: ["Python", "Cryptography", "Algorithms"],
+      features: [
+        "Auto-key generation from a user-supplied key",
+        "Substitution-box construction and register updates",
+        "Paired encryption and decryption flow"
+      ]
+    },
+
+    {
+      id: "opengl-cannon",
+      title: "OpenGL Cannon Graphics Study",
+      repositoryUrl: "https://github.com/kidanekalM/CannonGame",
+      description:
+        "A compact PyOpenGL experiment that constructs and rotates a cannon from low-level drawing primitives.",
+      technologies: ["Python", "PyOpenGL", "Pygame", "Computer Graphics"],
+      features: [
+        "Triangle-fan circle construction",
+        "Composed wheel and barrel geometry",
+        "Keyboard-controlled transformation"
       ]
     }
   ],

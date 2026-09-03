@@ -1,17 +1,28 @@
 import { Link, useParams } from "react-router-dom";
-import { findProjectBySlug, portfolioProjects } from "../../lib/portfolio";
+import {
+  findProjectBySlug,
+  portfolioProjects,
+  type PortfolioProject,
+} from "../../lib/portfolio";
 import styles from "./styles.module.css";
 
 export default function Projects() {
   const { slug } = useParams();
   const selectedProject = findProjectBySlug(slug);
+  const professionalOrder = ["link-emr", "opian-erp", "pharma"];
+  const professionalProjects = portfolioProjects
+    .filter((project) => project.organization)
+    .sort((left, right) => professionalOrder.indexOf(left.id) - professionalOrder.indexOf(right.id));
+  const personalProjects = portfolioProjects.filter((project) => !project.organization);
 
   if (selectedProject) {
     return (
       <main className={styles.page}>
         <section className={styles.detailHero}>
           <div className={styles.detailCopy}>
-            <p className={styles.eyebrow}>Project Detail</p>
+            <p className={styles.eyebrow}>
+              {selectedProject.organization ?? "Personal project"}
+            </p>
             <h1>{selectedProject.title}</h1>
             <p className={styles.description}>{selectedProject.description}</p>
 
@@ -124,34 +135,61 @@ export default function Projects() {
         <p className={styles.eyebrow}>Projects</p>
         <h1>Products, platforms, tools, simulations, and applied systems.</h1>
         <p className={styles.description}>
-          Case studies and working prototypes across full-stack product engineering.
+          Professional work at Opian Technologies and independent projects from my public GitHub.
         </p>
       </section>
 
-      <section className={styles.grid}>
-        {portfolioProjects.map((project) => (
-          <Link key={project.id} to={`/projects/${project.slug}`} className={styles.card}>
-            {project.image ? (
-              <img className={styles.cardMedia} src={project.image} alt={project.title} />
-            ) : project.video ? (
-              <video className={styles.cardMedia} src={project.video} muted playsInline preload="metadata" />
-            ) : (
-              <div className={styles.cardFallback}>{project.title.slice(0, 2)}</div>
-            )}
+      <section className={styles.projectGroup} aria-labelledby="opian-projects-title">
+        <header className={styles.groupHeader}>
+          <div>
+            <p className={styles.eyebrow}>Professional work</p>
+            <h2 id="opian-projects-title">Work at Opian Technologies.</h2>
+          </div>
+          <p>Link, OpianERP, and the Pharmaceutical Manufacturer Information System.</p>
+        </header>
+        <div className={styles.grid}>
+          {professionalProjects.map((project) => <ProjectCard key={project.id} project={project} />)}
+        </div>
+      </section>
 
-            <div className={styles.cardBody}>
-              <div className={styles.cardMeta}>
-                {project.technologies.slice(0, 3).map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-            </div>
-          </Link>
-        ))}
+      <section className={styles.projectGroup} aria-labelledby="personal-projects-title">
+        <header className={styles.groupHeader}>
+          <div>
+            <p className={styles.eyebrow}>Independent work</p>
+            <h2 id="personal-projects-title">Personal projects.</h2>
+          </div>
+          <p>Experiments and products built outside my work at Opian Technologies.</p>
+        </header>
+        <div className={styles.grid}>
+          {personalProjects.map((project) => <ProjectCard key={project.id} project={project} />)}
+        </div>
       </section>
 
     </main>
+  );
+}
+
+function ProjectCard({ project }: { project: PortfolioProject }) {
+  return (
+    <Link to={`/projects/${project.slug}`} className={styles.card}>
+      {project.image ? (
+        <img className={styles.cardMedia} src={project.image} alt={project.title} />
+      ) : project.video ? (
+        <video className={styles.cardMedia} src={project.video} muted playsInline preload="metadata" />
+      ) : (
+        <div className={styles.cardFallback}>{project.title.slice(0, 2)}</div>
+      )}
+
+      <div className={styles.cardBody}>
+        <div className={styles.cardMeta}>
+          <span className={styles.contextTag}>{project.organization ?? "Personal project"}</span>
+          {project.technologies.slice(0, 3).map((tech) => (
+            <span key={tech}>{tech}</span>
+          ))}
+        </div>
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
+      </div>
+    </Link>
   );
 }

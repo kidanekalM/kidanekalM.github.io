@@ -120,7 +120,7 @@ function FlagshipProject({ project }: { project: PortfolioProject }) {
     <article className={styles.projectCard} data-project={project.id}>
       <ProjectVisual project={project} />
       <div className={styles.projectMeta}>
-        <span>{projectLabels[project.id] ?? "Software system"}</span>
+        <span>{project.organization ?? projectLabels[project.id] ?? "Personal project"}</span>
         <span>{project.technologies.slice(0, 3).join(" / ")}</span>
       </div>
       <h3>{project.title}</h3>
